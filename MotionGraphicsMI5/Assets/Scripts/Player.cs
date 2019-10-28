@@ -23,13 +23,13 @@ public class Player : MonoBehaviour
 	{
 	//Spieler ist auf die MAus gerichtet
 		//Aufspüren der Kameraposition
-		Plane playerPlane = new Plane(Vector3.up, transform.position);
+		//Plane playerPlane = new Plane(Vector3.up, transform.position);
 		
 		//Postion der Maus
 		Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
 
 		float hitDist = 0.0f;
-
+        /*
 		if(playerPlane.Raycast(ray, out hitDist))
 		{
 			Vector3 targetPoint = ray.GetPoint(hitDist);
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 			targetRotation.x = 0;
 			targetRotation.z = 0;
 			playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 5f * Time.deltaTime);
-		}
+		}*/
 
 
 	//Player Movement
