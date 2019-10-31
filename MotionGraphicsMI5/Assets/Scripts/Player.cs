@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
 		{
             if (playerPlane.Raycast(ray, out hitDist))
             {
-                Debug.Log("asd");
                 prevPos = transform.position;
                 Vector3 targetPoint = ray.GetPoint(hitDist);
                 Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
