@@ -15,33 +15,41 @@ public class Player : MonoBehaviour
 	public GameObject bullet;
 
 	private Transform bulletSpawn;
+    
+    private Vector3 prevPos = new Vector3();
 
-	public float points;
+    public float points;
 
 	//Methoden
 	void Update()
 	{
-	//Spieler ist auf die MAus gerichtet
-		//Aufspüren der Kameraposition
-		//Plane playerPlane = new Plane(Vector3.up, transform.position);
-		
-		//Postion der Maus
-		Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Spieler ist auf die MAus gerichtet
+        //Aufspüren der Kameraposition
+        Plane playerPlane = new Plane(Vector3.up, transform.position);
+
+        //Postion der Maus
+        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
 
 		float hitDist = 0.0f;
-        /*
-		if(playerPlane.Raycast(ray, out hitDist))
+        prevPos = transform.position;
+
+        if (!Input.anyKey)
 		{
-			Vector3 targetPoint = ray.GetPoint(hitDist);
-			Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-			targetRotation.x = 0;
-			targetRotation.z = 0;
-			playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 5f * Time.deltaTime);
-		}*/
+            if (playerPlane.Raycast(ray, out hitDist))
+            {
+                Debug.Log("asd");
+                prevPos = transform.position;
+                Vector3 targetPoint = ray.GetPoint(hitDist);
+                Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+                targetRotation.x = 0;
+                targetRotation.z = 0;
+                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 5f * Time.deltaTime);
+            }
+		}
 
 
-	//Player Movement
-		if(Input.GetKey(KeyCode.W))
+        //Player Movement
+        if (Input.GetKey(KeyCode.W))
 			transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
 		if(Input.GetKey(KeyCode.S))
 			transform.position += Vector3.back * movementSpeed * Time.deltaTime;
