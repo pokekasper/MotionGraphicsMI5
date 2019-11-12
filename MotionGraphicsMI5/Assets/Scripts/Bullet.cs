@@ -23,16 +23,13 @@ public class Bullet : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (transform.position - UnityEngine.Camera.main.transform.position).magnitude));
-            mousePosition.y = 0;
-            mousePosition.x = 9.68f;
-            mousePosition.Normalize();
             Debug.Log(mousePosition);
             
         }
      
        
         //Vorwärtsbewegung der "Kugel"
-        transform.Translate(mousePosition * (-1) * Time.deltaTime * speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
         maxDist += 1* Time.deltaTime;
 
 		if(maxDist >= 5)
