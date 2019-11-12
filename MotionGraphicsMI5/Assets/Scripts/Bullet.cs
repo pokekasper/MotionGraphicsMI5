@@ -15,16 +15,24 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        
+       
     }
     void Update()
     {
         float hitDist = 0.0f;
+        if (Input.GetMouseButtonDown(0))
+        {
+            mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (transform.position - UnityEngine.Camera.main.transform.position).magnitude));
+            mousePosition.y = 0;
+            mousePosition.x = 9.68f;
+            mousePosition.Normalize();
+            Debug.Log(mousePosition);
+            
+        }
      
-        Vector3 lookat = UnityEngine.Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (transform.position - UnityEngine.Camera.main.transform.position).magnitude));
-        lookat.y = transform.position.y;
+       
         //Vorwärtsbewegung der "Kugel"
-        transform.LookAt(lookat);
+        transform.Translate(mousePosition * (-1) * Time.deltaTime * speed);
         maxDist += 1* Time.deltaTime;
 
 		if(maxDist >= 5)
