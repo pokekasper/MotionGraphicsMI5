@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     //Variablen
 	public float movementSpeed;
-	public GameObject camera;
+    public GameObject camera;
 
 	public GameObject playerObj;
 
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 	//Methoden
 	void Update()
 	{
+            
         //Spieler ist auf die MAus gerichtet
         //Aufspüren der Kameraposition
         Plane playerPlane = new Plane(Vector3.up, transform.position);
