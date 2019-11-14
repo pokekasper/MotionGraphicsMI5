@@ -10,43 +10,46 @@ public class Bullet : MonoBehaviour
 
 	private GameObject triggeringEnemy;
     public float damage;
-    Vector3 mousePosition = new Vector3();
+    Vector3 mousePosition;
     Vector3 hitpoint;
-    
+	float hitDist = 0.0f;
 
-    void Start()
+
+	void Start()
     {
-       
-    }
+		/*
+			Plane playerPlane = new Plane(Vector3.up, transform.position);
+			Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (playerPlane.Raycast(ray, out hitDist))
+			{
+				Vector3 targetPoint = ray.GetPoint(hitDist);
+				Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+				targetRotation.x = 0;
+				targetRotation.z = 0;
+				transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+
+
+			}
+			*/
+		Debug.Log("ngfh"+Input.mousePosition);
+		mousePosition = Input.mousePosition;
+		mousePosition.z = transform.position.z - UnityEngine.Camera.main.transform.position.z;
+		mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(mousePosition);
+		Debug.Log(mousePosition);
+		mousePosition.y = transform.position.y;
+	}
     void Update()
     {
-        
-        float hitDist = 0.0f;
-        if (Input.GetMouseButtonDown(0))
-        {
-            mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (transform.position - UnityEngine.Camera.main.transform.position).magnitude));
-            Debug.Log(mousePosition);
-            shoot();
-            
-        }
+		Debug.Log(mousePosition);
+		transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed*Time.deltaTime);
 
 
         //Vorwärtsbewegung der "Kugel"
-        Plane playerPlane = new Plane(Vector3.up, transform.position);
-        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-        float hitDist = 0.0f;
-        if (playerPlane.Raycast(ray, out hitDist))
-        {
-            Vector3 targetPoint = ray.GetPoint(hitDist);
-            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
-        }
+        
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        //transform.Translate(Vector3.forward * Time.deltaTime * speed);
         maxDist += 1* Time.deltaTime;
-
+		
 		if(maxDist >= 5)
 		{
 			Destroy(this.gameObject);

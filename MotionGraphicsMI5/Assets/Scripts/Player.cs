@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
 	void Shoot()
 	{
 		bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-		bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
+		//bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
 	}
 
 }
