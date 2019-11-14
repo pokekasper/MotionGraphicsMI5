@@ -51,22 +51,22 @@ public class Player : MonoBehaviour
         //Player Movement
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Rotate(0, 0, 0);
+            //transform.Rotate(0, 0, 0);
             transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Rotate(0, 180, 0);
+            //transform.Rotate(0, 180, 0);
             transform.position += Vector3.back * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0, 270, 0);
-             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+            //transform.Rotate(0, 270, 0);
+            transform.position += Vector3.left * movementSpeed * Time.deltaTime;
         }   
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0, 90, 0);
+            //transform.Rotate(0, 90, 0);
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
 
