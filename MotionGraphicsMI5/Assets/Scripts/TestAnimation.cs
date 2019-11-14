@@ -14,7 +14,7 @@ public class TestAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)|| Input.GetKey("space"))
         {
             anim.SetBool("isWalking", true);
 
@@ -23,7 +23,7 @@ public class TestAnimation : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
-        if (Input.GetMouseButtonDown(0)||Input.GetKey("space"))
+        if (Input.GetMouseButtonDown(0))
         {
             anim.SetBool("isShooting", true);
         }

@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
                 targetRotation.x = 0;
                 targetRotation.z = 0;
                 playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 5f * Time.deltaTime);
+                Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
             }
         }
 
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour
             playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
             //Bewegung
             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+            Debug.Log("player.transform.rotation: "+playerObj.transform.rotation);
         }   
         if (Input.GetKey(KeyCode.D))
         {
