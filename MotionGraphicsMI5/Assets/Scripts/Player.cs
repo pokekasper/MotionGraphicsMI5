@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+
         //Spieler ist auf die MAus gerichtet
         //Aufspüren der Kameraposition
         Plane playerPlane = new Plane(Vector3.up, transform.position);
@@ -51,22 +52,43 @@ public class Player : MonoBehaviour
         //Player Movement
         if (Input.GetKey(KeyCode.W))
         {
-            //transform.Rotate(0, 0, 0);
+            //Rotation
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward);
+            targetRotation.x = 0;
+            targetRotation.z = 0;
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            //Bewegung
             transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+            
         }
         if (Input.GetKey(KeyCode.S))
         {
-            //transform.Rotate(0, 180, 0);
+            //Rotation
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.back);
+            targetRotation.x = 0;
+            targetRotation.z = 0;
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            //Bewegung
             transform.position += Vector3.back * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            //transform.Rotate(0, 270, 0);
+            //Rotation
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.left);
+            targetRotation.x = 0;
+            targetRotation.z = 0;
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            //Bewegung
             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
         }   
         if (Input.GetKey(KeyCode.D))
         {
-            //transform.Rotate(0, 90, 0);
+            //Rotation
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.right);
+            targetRotation.x = 0;
+            targetRotation.z = 0;
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            //Bewegung
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
 
