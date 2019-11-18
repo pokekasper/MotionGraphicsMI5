@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward);
             targetRotation.x = 0;
             targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
             //Bewegung
             transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
             
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.back);
             targetRotation.x = 0;
             targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
             //Bewegung
             transform.position += Vector3.back * movementSpeed * Time.deltaTime;
         }
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.left);
             targetRotation.x = 0;
             targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
             //Bewegung
             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
             Debug.Log("player.transform.rotation: "+playerObj.transform.rotation);
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.right);
             targetRotation.x = 0;
             targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 100f * Time.deltaTime);
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
             //Bewegung
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
