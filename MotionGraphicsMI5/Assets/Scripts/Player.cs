@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private Vector3 prevPos = new Vector3();
 
     public float points;
+    private float x;
+    private float y;
 
     //Methoden
     void Update()
@@ -49,6 +51,29 @@ public class Player : MonoBehaviour
             }
         }
 
+
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
+        
+        
+        if(x!=0 || y!= 0)
+        {
+            Vector3 direction = new Vector3(x, 0, y).normalized;
+            Move(direction);
+        }
+        
+
+        void Move(Vector3 vector)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(vector);
+            targetRotation.x = 0;
+            targetRotation.z = 0;
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
+            //Bewegung
+            transform.position += vector * movementSpeed * Time.deltaTime;
+        }
+
+        /*
 
         //Player Movement
         if (Input.GetKey(KeyCode.W))
@@ -93,7 +118,7 @@ public class Player : MonoBehaviour
             //Bewegung
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
-
+        */
 
 		//Shooting
 		if (Input.GetMouseButtonDown(0))
