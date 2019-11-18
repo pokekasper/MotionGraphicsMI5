@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour
 {
 
 	public float speed;
-	public float maxDist;
+	public float maxTime;
+    public float timeCount;
 
 	private GameObject triggeringEnemy;
     public float damage;
@@ -17,6 +18,7 @@ public class Bullet : MonoBehaviour
 
 	void Start()
     {
+        timeCount = 0;
 		/*
 			Plane playerPlane = new Plane(Vector3.up, transform.position);
 			Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -48,9 +50,9 @@ public class Bullet : MonoBehaviour
         
 
         //transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        maxDist += 1* Time.deltaTime;
+        timeCount += 1* Time.deltaTime;
 		
-		if(maxDist >= 5)
+		if(timeCount >= maxTime)
 		{
 			Destroy(this.gameObject);
 		}
