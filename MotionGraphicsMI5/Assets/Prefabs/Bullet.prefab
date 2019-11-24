@@ -105,5 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  maxDist: 0
+  maxTime: 20
+  timeCount: 0
   damage: 25

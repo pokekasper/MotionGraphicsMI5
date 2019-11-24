@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
                 targetRotation.x = 0;
                 targetRotation.z = 0;
                 playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 5f * Time.deltaTime);
-                Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
+               // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
             }
         }
 

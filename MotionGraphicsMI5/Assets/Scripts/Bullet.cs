@@ -33,16 +33,16 @@ public class Bullet : MonoBehaviour
 
 			}
 			*/
-		Debug.Log("ngfh"+Input.mousePosition);
+		//Debug.Log("ngfh"+Input.mousePosition);
 		mousePosition = Input.mousePosition;
 		mousePosition.z = transform.position.z - UnityEngine.Camera.main.transform.position.z;
 		mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(mousePosition);
-		Debug.Log(mousePosition);
+		//Debug.Log(mousePosition);
 		mousePosition.y = transform.position.y;
 	}
     void Update()
     {
-		Debug.Log(mousePosition);
+		//Debug.Log(mousePosition);
 		transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed*Time.deltaTime);
 
 
@@ -60,10 +60,13 @@ public class Bullet : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
+        Debug.Log(other.gameObject.name);
+
 		if(other.tag == "Enemy")
 		{
 			triggeringEnemy = other.gameObject;
 			triggeringEnemy.GetComponent<Enemy>().health -= damage;
+            Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
 			Destroy(this.gameObject);
 		}
 	}
