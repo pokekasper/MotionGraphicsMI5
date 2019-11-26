@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 	public float speed;
 	public float maxTime;
     public float timeCount;
+    public Vector3 rotation = new Vector3(-5, 0, 0);
 
 	private GameObject triggeringEnemy;
     public float damage;
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     Vector3 direction;
     Vector3 hitpoint;
 	float hitDist = 0.0f;
+    bool hit = false;
 
 
 	void Start()
@@ -45,8 +47,17 @@ public class Bullet : MonoBehaviour
     }
     void Update()
     {
+
 		
         transform.position += direction * Time.deltaTime;
+
+        if (!hit)
+        {
+            //Debug.Log(mousePosition);
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
+            transform.Rotate(rotation);
+        }
+            
 
        
 
@@ -58,20 +69,34 @@ public class Bullet : MonoBehaviour
 		
 		if(timeCount >= maxTime)
 		{
-			Destroy(this.gameObject);
+            DestroyObject(this.gameObject);
+			
 		}
     }
 
 	public void OnTriggerEnter(Collider other)
 	{
-        //Debug.Log(other.gameObject.name);
+        
+        Debug.Log(other.gameObject.name);
 
 		if(other.tag == "Enemy")
 		{
-			triggeringEnemy = other.gameObject;
+
+            hit = true;
+            triggeringEnemy = other.gameObject;
 			triggeringEnemy.GetComponent<Enemy>().health -= damage;
            // Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
 			Destroy(this.gameObject);
 		}
+            Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
+            DestroyObject(this.gameObject);
+        }
 	}
+    public void DestroyObject(GameObject obj)
+    {
+       // Player player = GetComponent<Player>();
+
+       // player.axe.SetActive(true);
+        Destroy(obj);
+    }
 }

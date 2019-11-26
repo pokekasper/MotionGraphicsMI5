@@ -21,10 +21,13 @@ public class Player : MonoBehaviour
     public float points;
     private float x;
     private float y;
+    public float spawnTime=0.4f;
+    public GameObject axe;
 
     //Methoden
     void Update()
     {
+        
 
 
         //Spieler ist auf die MAus gerichtet
@@ -125,7 +128,8 @@ public class Player : MonoBehaviour
 		{
             if(!(Input.GetKey(KeyCode.A)) && !(Input.GetKey(KeyCode.S)) && !(Input.GetKey(KeyCode.W)) && !(Input.GetKey(KeyCode.D)))
             {
-                Shoot();
+                Invoke("Shoot",spawnTime);
+                
             }
 			
 		}
@@ -133,10 +137,14 @@ public class Player : MonoBehaviour
 
 	void Shoot()
 	{
+      //  Waiting(2f);
 		bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-		bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
+        bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
         bulletSpawn.Rotate(0, 180, 0);
-        
-	}
+        //axe.SetActive(false);
+
+
+    }
+ 
 
 }
