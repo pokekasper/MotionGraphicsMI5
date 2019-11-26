@@ -16,7 +16,6 @@ public class Bullet : MonoBehaviour
     Vector3 direction;
     Vector3 hitpoint;
 	float hitDist = 0.0f;
-    bool hit = false;
 
 
 	void Start()
@@ -51,20 +50,15 @@ public class Bullet : MonoBehaviour
 		
         transform.position += direction * Time.deltaTime;
 
-        if (!hit)
-        {
-            //Debug.Log(mousePosition);
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
-            transform.Rotate(rotation);
-        }
+       //Debug.Log(mousePosition);
+       //transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
+       //transform.Rotate(rotation);
             
 
        
 
         //Vorwärtsbewegung der "Kugel"
         
-
-        //transform.Translate(Vector3.forward * Time.deltaTime *  speed);
         timeCount += 1* Time.deltaTime;
 		
 		if(timeCount >= maxTime)
@@ -82,15 +76,12 @@ public class Bullet : MonoBehaviour
 		if(other.tag == "Enemy")
 		{
 
-            hit = true;
             triggeringEnemy = other.gameObject;
 			triggeringEnemy.GetComponent<Enemy>().health -= damage;
-           // Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
+            Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
 			Destroy(this.gameObject);
 		}
-            Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
-            DestroyObject(this.gameObject);
-        }
+        
 	}
     public void DestroyObject(GameObject obj)
     {
