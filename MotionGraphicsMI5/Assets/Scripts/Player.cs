@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private float y;
     public float spawnTime=0.4f;
     public GameObject axe;
-
+    public GameObject waffenhalter;
     //Methoden
     void Update()
     {
@@ -137,11 +137,12 @@ public class Player : MonoBehaviour
 
 	void Shoot()
 	{
+
       //  Waiting(2f);
 		bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
         bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
         bulletSpawn.Rotate(0, 180, 0);
-        //axe.SetActive(false);
+        axe.SetActive(false);
 
 
     }

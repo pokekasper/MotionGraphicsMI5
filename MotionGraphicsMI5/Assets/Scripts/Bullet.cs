@@ -15,11 +15,15 @@ public class Bullet : MonoBehaviour
     Vector3 mousePosition;
     Vector3 direction;
     Vector3 hitpoint;
+    public GameObject parent;
 	float hitDist = 0.0f;
+    public Player player;
 
 
 	void Start()
     {
+        
+        
         timeCount = 0;
         /* 
 			Plane playerPlane = new Plane(Vector3.up, transform.position);
@@ -43,16 +47,18 @@ public class Bullet : MonoBehaviour
         mousePosition.y = transform.position.y;
         direction = (mousePosition - transform.position).normalized;
         Debug.Log(direction.z);
+        //transform.rotation = new Quaternion(0, direction.y, 0, 0);
     }
     void Update()
     {
+        player = gameObject.GetComponent<Player>();
 
-		
-        transform.position += direction * Time.deltaTime;
+        transform.position += direction *speed* Time.deltaTime;
 
-       //Debug.Log(mousePosition);
-       //transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
-       //transform.Rotate(rotation);
+        //Debug.Log(mousePosition);
+        //transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
+       
+       transform.Rotate(rotation);
             
 
        
@@ -85,9 +91,10 @@ public class Bullet : MonoBehaviour
 	}
     public void DestroyObject(GameObject obj)
     {
-       // Player player = GetComponent<Player>();
 
-       // player.axe.SetActive(true);
+      //  GameObject waffenhalter = 
+       // Debug.Log(waffenhalter);
+       //axe.SetActive(true);
         Destroy(obj);
     }
 }

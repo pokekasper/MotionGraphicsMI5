@@ -358,6 +358,7 @@ MonoBehaviour:
   timeCount: 0
   rotation: {x: -8, y: 0, z: 0}
   damage: 25
+  parent: {fileID: 992544991132034572}
 --- !u!1 &992544991132034574
 GameObject:
   m_ObjectHideFlags: 0
