@@ -8,6 +8,7 @@ public class WeaponScript : MonoBehaviour
     public float rotationSpeed;
     Vector3 axis;
     Vector3 neuAxis;
+    public int damage;
     public bool done = false;
 
 
@@ -28,9 +29,19 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        activated = false;
-        GetComponent<Rigidbody>().isKinematic = true;
+
+        Debug.Log(other.gameObject.name);
+
+        if (other.tag == "Enemy")
+        {
+
+            GameObject triggeringEnemy = other.gameObject;
+            triggeringEnemy.GetComponent<Enemy>().health -= damage;
+            Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
+         
+        }
+
     }
 }

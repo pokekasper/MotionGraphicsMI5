@@ -17,7 +17,7 @@ public class ThrowAxe : MonoBehaviour
      Vector3 startPosition;
     Quaternion startRotation;
     Vector3 startScale;
-    int i=0;
+    public int i=0;
     // Start is called before the first frame update
     void Start()
     {
