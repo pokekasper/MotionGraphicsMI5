@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public float spawnTime=0.4f;
     public GameObject axe;
     public GameObject waffenhalter;
+
     //Methoden
     void Update()
     {
@@ -48,85 +49,44 @@ public class Player : MonoBehaviour
         }
 
 
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
         
         
-        if(x!=0 || y!= 0)
-        {
-            Vector3 direction = new Vector3(x, 0, y).normalized;
-            Move(direction);
-        }
+
         
-
-        void Move(Vector3 vector)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(vector);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-            //Bewegung
-            transform.position += vector * movementSpeed * Time.deltaTime;
-        }
-
-        /*
-
-        //Player Movement
-        if (Input.GetKey(KeyCode.W))
-        {
-            //Rotation
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-            //Bewegung
-            transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
-            
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            //Rotation
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.back);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-            //Bewegung
-            transform.position += Vector3.back * movementSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            //Rotation
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.left);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-            //Bewegung
-            transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-            Debug.Log("player.transform.rotation: "+playerObj.transform.rotation);
-        }   
-        if (Input.GetKey(KeyCode.D))
-        {
-            //Rotation
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.right);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-            //Bewegung
-            transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-        }
-        */
 
 		//Shooting
 		if (Input.GetMouseButtonDown(0))
 		{
-            if(!(Input.GetKey(KeyCode.A)) && !(Input.GetKey(KeyCode.S)) && !(Input.GetKey(KeyCode.W)) && !(Input.GetKey(KeyCode.D)))
-            {
-                Invoke("Shoot",spawnTime);
-                Rotatet(ray, hitDist, playerPlane);
+            dreh = true;
+            Invoke("Shoot",spawnTime);
+            Rotatet(ray, hitDist, playerPlane);
+            Invoke("EnableMovement", 3f);
 
-            }
+        
 			
 		}
+        if(!Input.GetMouseButtonDown(0) && !dreh)
+        {
+            x = Input.GetAxisRaw("Horizontal");
+            y = Input.GetAxisRaw("Vertical");
+
+
+            if (x != 0 || y != 0)
+            {
+                Vector3 direction = new Vector3(x, 0, y).normalized;
+                Move(direction);
+            }
+            void Move(Vector3 vector)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(vector);
+                targetRotation.x = 0;
+                targetRotation.z = 0;
+                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
+                //Bewegung
+                transform.position += vector * movementSpeed * Time.deltaTime;
+            }
+
+        }
 	}
 
 	void Shoot()
@@ -139,6 +99,10 @@ public class Player : MonoBehaviour
         axe.SetActive(false);
 
 
+    }
+    void EnableMovement()
+    {
+        dreh = false;
     }
     void Rotatet(Ray ray, float hitDist, Plane playerPlane)
     {
