@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 	private Transform bulletSpawn;
     
     private Vector3 prevPos = new Vector3();
+    private bool dreh = true;
 
     public float points;
     private float x;
@@ -42,16 +43,8 @@ public class Player : MonoBehaviour
 
         if (!Input.anyKey)
         {
-            if (playerPlane.Raycast(ray, out hitDist))
-            {
-                prevPos = transform.position;
-                Vector3 targetPoint = ray.GetPoint(hitDist);
-                Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-                targetRotation.x = 0;
-                targetRotation.z = 0;
-                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 5f * Time.deltaTime);
-               // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
-            }
+
+            Rotatet(ray, hitDist, playerPlane);
         }
 
 
@@ -129,7 +122,8 @@ public class Player : MonoBehaviour
             if(!(Input.GetKey(KeyCode.A)) && !(Input.GetKey(KeyCode.S)) && !(Input.GetKey(KeyCode.W)) && !(Input.GetKey(KeyCode.D)))
             {
                 Invoke("Shoot",spawnTime);
-                
+                Rotatet(ray, hitDist, playerPlane);
+
             }
 			
 		}
@@ -145,6 +139,20 @@ public class Player : MonoBehaviour
         axe.SetActive(false);
 
 
+    }
+    void Rotatet(Ray ray, float hitDist, Plane playerPlane)
+    {
+        if (playerPlane.Raycast(ray, out hitDist) && Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("geht");
+            prevPos = transform.position;
+            Vector3 targetPoint = ray.GetPoint(hitDist);
+            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+            targetRotation.x = 0;
+            targetRotation.z = 0;
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 150f * Time.deltaTime);
+            // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
+        }
     }
  
 
