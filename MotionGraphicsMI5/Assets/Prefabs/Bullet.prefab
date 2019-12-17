@@ -104,7 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3b6ca7d90ecde4791cfe3d1f1b964a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  maxTime: 20
+  speed: 10
+  maxTime: 10
   timeCount: 0
+  rotation: {x: -5, y: 0, z: 0}
   damage: 25
+  parent: {fileID: 0}
+  player: {fileID: 0}
