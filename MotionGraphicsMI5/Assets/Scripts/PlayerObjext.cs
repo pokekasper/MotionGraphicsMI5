@@ -6,7 +6,8 @@ using UnityEngine.Networking;
 public class PlayerObjext : NetworkBehaviour
 {
 
-	public GameObject PlayerUnitPrefab;
+	public GameObject PlayerUnitPrefab1;
+	public GameObject PlayerUnitPrefab2;
 	GameObject myPlayerUnit;
 
     // Start is called before the first frame update
@@ -41,7 +42,7 @@ public class PlayerObjext : NetworkBehaviour
 	void CmdSpawnMyUnit()
 	{
 		//We are guaranteed to be on the server right now
-		GameObject go = Instantiate(PlayerUnitPrefab);
+		GameObject go = Instantiate(PlayerUnitPrefab1);
 
 		myPlayerUnit = go;
 
@@ -51,16 +52,5 @@ public class PlayerObjext : NetworkBehaviour
 		// the clients (and also wire up the NetworkIdentitty)
 		NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
 	}
-
-	[Command]
-	void CmdMoveUnitUp()
-	{
-		if(myPlayerUnit == null)
-		{
-			return;
-		}
-
-		myPlayerUnit.transform.Translate(0,1,0);
-	}
-
+	
 }
