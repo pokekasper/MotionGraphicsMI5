@@ -33,7 +33,7 @@ public class WeaponScript : MonoBehaviour
     {
 
         Debug.Log(other.gameObject.name);
-
+        
         if (other.tag == "Enemy")
         {
 

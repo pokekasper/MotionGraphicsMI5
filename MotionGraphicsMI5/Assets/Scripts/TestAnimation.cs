@@ -5,6 +5,7 @@ using UnityEngine;
 public class TestAnimation : MonoBehaviour
 {
     public Animator anim;
+    private bool dead;
     
     int i=0;
     public ThrowAxe throwAxe;
@@ -12,6 +13,7 @@ public class TestAnimation : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        //dead = Get
         
         
     }
@@ -19,29 +21,33 @@ public class TestAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(throwAxe != null)
-        {
-            i = throwAxe.i;
-        }
-        
-        Debug.Log("i:" + i);
-        if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)|| Input.GetKey("space") )
-        {
-            anim.SetBool("isWalking", true);
+      //  if (!dead)
+       // {
+            if (throwAxe != null)
+            {
+                i = throwAxe.i;
+            }
 
-        }
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
-        if (Input.GetMouseButtonDown(0) && i==0)
-        {
-            anim.SetBool("isShooting", true);
-        }
-        else
-        {
-            anim.SetBool("isShooting", false);
-        }
+            Debug.Log("i:" + i);
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey("space"))
+            {
+                anim.SetBool("isWalking", true);
+
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+            }
+            if (Input.GetMouseButtonDown(0) && i == 0)
+            {
+                anim.SetBool("isShooting", true);
+            }
+            else
+            {
+                anim.SetBool("isShooting", false);
+            }
+      //  }
+        
+        
     }
 }
