@@ -14,6 +14,7 @@ public class Player2 : MonoBehaviour
     public float waitTime;
 
     private Vector3 prevPos = new Vector3();
+    public bool dreh = true;
 
     public float points;
     private float x;
@@ -34,40 +35,46 @@ public class Player2 : MonoBehaviour
         float hitDist = 0.0f;
         prevPos = transform.position;
 
-        if (!Input.anyKey)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (playerPlane.Raycast(ray, out hitDist))
+            Rotatet(ray, hitDist, playerPlane);
+        }
+
+
+            x = Input.GetAxisRaw("Horizontal");
+            y = Input.GetAxisRaw("Vertical");
+
+
+            if ((x != 0 || y != 0) && dreh)
             {
-                prevPos = transform.position;
-                Vector3 targetPoint = ray.GetPoint(hitDist);
-                Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+                Vector3 direction = new Vector3(x, 0, y).normalized;
+                Move(direction);
+            }
+
+
+            void Move(Vector3 vector)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(vector);
                 targetRotation.x = 0;
                 targetRotation.z = 0;
-                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 5f * Time.deltaTime);
-                // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
+                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
+                //Bewegung
+                transform.position += vector * movementSpeed * Time.deltaTime;
             }
-        }
 
-
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
-
-
-        if (x != 0 || y != 0)
+    }
+    void Rotatet(Ray ray, float hitDist, Plane playerPlane)
+    {
+        if (playerPlane.Raycast(ray, out hitDist) && Input.GetMouseButtonDown(0))
         {
-            Vector3 direction = new Vector3(x, 0, y).normalized;
-            Move(direction);
-        }
-
-
-        void Move(Vector3 vector)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(vector);
+            Debug.Log("geht");
+            prevPos = transform.position;
+            Vector3 targetPoint = ray.GetPoint(hitDist);
+            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
             targetRotation.x = 0;
             targetRotation.z = 0;
-            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-            //Bewegung
-            transform.position += vector * movementSpeed * Time.deltaTime;
+            playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 150f * Time.deltaTime);
+            // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
         }
     }
 }

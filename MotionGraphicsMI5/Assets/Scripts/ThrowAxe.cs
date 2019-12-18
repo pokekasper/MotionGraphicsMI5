@@ -14,10 +14,11 @@ public class ThrowAxe : MonoBehaviour
     private Vector3 prevPos = new Vector3();
     private bool throwed = false;
     public GameObject parentNode;
-     Vector3 startPosition;
+    Vector3 startPosition;
     Quaternion startRotation;
     Vector3 startScale;
     public int i=0;
+    public GameObject player2;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class ThrowAxe : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (i ==0 ) {
+                
                 throwed = true;
                 Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
@@ -46,6 +48,8 @@ public class ThrowAxe : MonoBehaviour
                 direction = (mousePosition - transform.position).normalized;
                 Invoke("AxeThrow", delay);
                 i++;
+                player2.GetComponent<Player2>().dreh = false;
+                Invoke("EnableMovement", 1f);
             }
             else if(i==1)
             {
@@ -70,6 +74,10 @@ public class ThrowAxe : MonoBehaviour
             }
             
         }
+    }
+    void EnableMovement()
+    {
+        player2.GetComponent<Player2>().dreh = true;
     }
 
     // Update is called once per frame

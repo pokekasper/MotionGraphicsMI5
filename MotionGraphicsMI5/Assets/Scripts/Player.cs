@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
             dreh = true;
             Invoke("Shoot",spawnTime);
             Rotatet(ray, hitDist, playerPlane);
-            Invoke("EnableMovement", 3f);
+            Invoke("EnableMovement", 1f);
 
         
 			
