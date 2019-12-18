@@ -47,9 +47,10 @@ public class ThrowAxe : MonoBehaviour
                 mousePosition.y = transform.position.y;
                 direction = (mousePosition - transform.position).normalized;
                 Invoke("AxeThrow", delay);
-                i++;
+                
                 player2.GetComponent<Player2>().dreh = false;
                 Invoke("EnableMovement", 1f);
+                i++;
             }
             else if(i==1)
             {

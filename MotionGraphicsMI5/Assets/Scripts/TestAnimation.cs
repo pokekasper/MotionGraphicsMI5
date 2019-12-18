@@ -32,7 +32,7 @@ public class TestAnimation : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
-        if (Input.GetMouseButtonDown(0) && i==1)
+        if (Input.GetMouseButtonDown(0) && i==0)
         {
             anim.SetBool("isShooting", true);
         }
