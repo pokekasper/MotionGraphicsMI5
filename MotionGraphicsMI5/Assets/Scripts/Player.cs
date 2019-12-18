@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 		//Shooting
 		if (Input.GetMouseButtonDown(0))
 		{
-            dreh = true;
+            dreh = false;
             Invoke("Shoot",spawnTime);
             Rotatet(ray, hitDist, playerPlane);
             Invoke("EnableMovement", 1f);
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         
 			
 		}
-        if(!Input.GetMouseButtonDown(0) && !dreh)
+        if(!Input.GetMouseButtonDown(0) && dreh)
         {
             x = Input.GetAxisRaw("Horizontal");
             y = Input.GetAxisRaw("Vertical");
@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
     }
     void EnableMovement()
     {
-        dreh = false;
+        dreh = true;
     }
     void Rotatet(Ray ray, float hitDist, Plane playerPlane)
     {

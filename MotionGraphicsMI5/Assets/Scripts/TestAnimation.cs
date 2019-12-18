@@ -20,8 +20,11 @@ public class TestAnimation : MonoBehaviour
     void Update()
     {
         
+        if(throwAxe != null)
+        {
+            i = throwAxe.i;
+        }
         
-        i = throwAxe.i;
         Debug.Log("i:" + i);
         if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)|| Input.GetKey("space") )
         {
