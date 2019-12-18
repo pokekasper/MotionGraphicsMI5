@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Simon.unity
+    guid: 0a7c1989183cd0348b624ddf472c2325
+  - enabled: 0
+    path: Assets/Scenes/Simon - Kopie.unity
+    guid: 3802695a4824546468b07baaccb2486e
+  - enabled: 0
     path: Assets/Scenes/Multiplayer.unity
     guid: 230b6b7115115cd4fb4249e531b301f7
   m_configObjects: {}
