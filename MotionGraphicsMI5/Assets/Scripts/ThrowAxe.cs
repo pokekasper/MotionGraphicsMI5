@@ -51,6 +51,8 @@ public class ThrowAxe : MonoBehaviour
                 player2.GetComponent<Player2>().dreh = false;
                 Invoke("EnableMovement", 1f);
                 i++;
+                Invoke("EnableCollider", 1f);
+
             }
             else if(i==1)
             {
@@ -59,8 +61,10 @@ public class ThrowAxe : MonoBehaviour
                 GetComponent<WeaponScript>().activated = false;
                 axeRb.velocity = Vector3.zero;
                 axeRb.angularVelocity = Vector3.zero;
-                
-                
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+
+
+
                 i++;
             }
             else
@@ -76,6 +80,13 @@ public class ThrowAxe : MonoBehaviour
             
         }
     }
+    void EnableCollider()
+    {
+        gameObject.GetComponent<BoxCollider>().enabled = true;
+    }
+    
+        
+   
     void EnableMovement()
     {
         player2.GetComponent<Player2>().dreh = true;
