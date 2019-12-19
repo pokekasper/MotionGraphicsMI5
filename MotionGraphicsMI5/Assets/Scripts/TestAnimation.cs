@@ -7,7 +7,7 @@ public class TestAnimation : MonoBehaviour
     public Animator anim;
     private bool dead;
     
-    int i=0;
+    int i;
     public ThrowAxe throwAxe;
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,11 @@ public class TestAnimation : MonoBehaviour
             {
                 anim.SetBool("isWalking", false);
             }
-            if (Input.GetMouseButtonDown(0) && i == 0)
+            if(Input.GetMouseButtonDown(0)&& throwAxe==null)
+             {
+            anim.SetBool("isShooting", true);
+             }
+            else if (Input.GetMouseButtonDown(0) && i == 1)
             {
                 anim.SetBool("isShooting", true);
             }
@@ -46,6 +50,10 @@ public class TestAnimation : MonoBehaviour
             {
                 anim.SetBool("isShooting", false);
             }
+        if (Input.GetKey("i"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
       //  }
         
         
