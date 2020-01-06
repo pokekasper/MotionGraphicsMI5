@@ -76,15 +76,7 @@ public class Player : MonoBehaviour
                 Vector3 direction = new Vector3(x, 0, y).normalized;
                 Move(direction);
             }
-            void Move(Vector3 vector)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(vector);
-                targetRotation.x = 0;
-                targetRotation.z = 0;
-                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-                //Bewegung
-                transform.position += vector * movementSpeed * Time.deltaTime;
-            }
+
 
         }
 	}
@@ -119,5 +111,13 @@ public class Player : MonoBehaviour
         }
     }
  
-
+	            void Move(Vector3 vector)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(vector);
+                targetRotation.x = 0;
+                targetRotation.z = 0;
+                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
+                //Bewegung
+                transform.position += vector * movementSpeed * Time.deltaTime;
+            }
 }

@@ -52,15 +52,6 @@ public class Player2 : MonoBehaviour
             }
 
 
-            void Move(Vector3 vector)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(vector);
-                targetRotation.x = 0;
-                targetRotation.z = 0;
-                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-                //Bewegung
-                transform.position += vector * movementSpeed * Time.deltaTime;
-            }
 
     }
     void Rotatet(Ray ray, float hitDist, Plane playerPlane)
@@ -77,4 +68,14 @@ public class Player2 : MonoBehaviour
             // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
         }
     }
+	
+            void Move(Vector3 vector)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(vector);
+                targetRotation.x = 0;
+                targetRotation.z = 0;
+                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
+                //Bewegung
+                transform.position += vector * movementSpeed * Time.deltaTime;
+            }
 }
