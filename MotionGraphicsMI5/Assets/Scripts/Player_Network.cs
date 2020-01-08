@@ -12,6 +12,8 @@ public class Player_Network : NetworkBehaviour {
     public override void OnStartLocalPlayer()
     {
         GetComponent<Player2>().enabled = true;
+		GetComponent<TestAnimation>().enabled = true;
+		GetComponent<Camera>().enabled = true;
 		GetComponent<NetworkAnimator>().SetParameterAutoSend(0,true);
 		GameObject.Find("Main Camera").SetActive(false);
         firstPersonCharacter.SetActive(true);
