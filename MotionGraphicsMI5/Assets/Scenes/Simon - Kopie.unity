@@ -330,6 +330,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300020, guid: 9d9b01d8db6146a45b75f7ddecf1e70f, type: 3}
+--- !u!1 &348466970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8830110519672646551, guid: ef0a5a8c32b3f574fa08359381db8788,
+    type: 3}
+  m_PrefabInstance: {fileID: 8830110518669568955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &500112615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: e2124a0faff91d14187d9d1d0694cac9,
@@ -728,6 +734,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2124a0faff91d14187d9d1d0694cac9, type: 3}
+--- !u!1 &991041461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2054468786931327824, guid: ef0a5a8c32b3f574fa08359381db8788,
+    type: 3}
+  m_PrefabInstance: {fileID: 8830110518669568955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1057682704 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100038, guid: 9d9b01d8db6146a45b75f7ddecf1e70f,
@@ -3871,5 +3883,25 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 102618707}
+    - target: {fileID: 8830110519166379615, guid: ef0a5a8c32b3f574fa08359381db8788,
+        type: 3}
+      propertyPath: axe
+      value: 
+      objectReference: {fileID: 348466970}
+    - target: {fileID: 8830110519166379615, guid: ef0a5a8c32b3f574fa08359381db8788,
+        type: 3}
+      propertyPath: axeParent
+      value: 
+      objectReference: {fileID: 991041461}
+    - target: {fileID: 7381444296022786086, guid: ef0a5a8c32b3f574fa08359381db8788,
+        type: 3}
+      propertyPath: axe
+      value: 
+      objectReference: {fileID: 348466970}
+    - target: {fileID: 7381444296022786086, guid: ef0a5a8c32b3f574fa08359381db8788,
+        type: 3}
+      propertyPath: axeParent
+      value: 
+      objectReference: {fileID: 991041461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0a5a8c32b3f574fa08359381db8788, type: 3}
