@@ -2682,7 +2682,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickStartLANHost
         m_Mode: 1
         m_Arguments:
@@ -2693,7 +2693,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: ActivatePanel
         m_Mode: 5
         m_Arguments:
@@ -2704,7 +2704,7 @@ MonoBehaviour:
           m_StringArgument: PanelAttemptingToConnect
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickCapturePlayerName
         m_Mode: 1
         m_Arguments:
@@ -2980,7 +2980,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickDisconnectFromNetwork
         m_Mode: 1
         m_Arguments:
@@ -2991,7 +2991,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: ActivatePanel
         m_Mode: 5
         m_Arguments:
@@ -3828,7 +3828,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 839180092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37805e587859b9747983e3a80a5a08d4, type: 3}
+  m_Script: {fileID: 11500000, guid: b2d5cff755ab25e45925ffc38e90390b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
@@ -3840,11 +3840,12 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
-  m_AutoCreatePlayer: 1
+  m_PlayerPrefab: {fileID: 8830110519166379609, guid: e9e42687c56f49b4e840476e9b70a1c1,
+    type: 3}
+  m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
-  m_OnlineScene: 
+  m_OfflineScene: Menu
+  m_OnlineScene: Multiplayer_Neu
   m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -3901,16 +3902,20 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
-  textConnectionInfo: {fileID: 0}
-  ipAddressTextField: {fileID: 0}
-  panelsForUI: []
+  textConnectionInfo: {fileID: 1619108048}
+  ipAddressTextField: {fileID: 1113029600}
+  panelsForUI:
+  - {fileID: 573179020}
+  - {fileID: 133490526}
+  - {fileID: 298154844}
   matchRoomNameText: {fileID: 0}
   contentRoomList: {fileID: 0}
   roomButtonPrefab: {fileID: 0}
-  playerNameText: {fileID: 0}
+  playerNameText: {fileID: 117503533}
   mapSelectedText: {fileID: 0}
-  characterSelectedText: {fileID: 0}
-  characterPrefabs: {fileID: 0}
+  characterSelectedText: {fileID: 1117309171}
+  characterPrefabs:
+  - {fileID: 8830110519166379609, guid: e9e42687c56f49b4e840476e9b70a1c1, type: 3}
 --- !u!4 &839180095
 Transform:
   m_ObjectHideFlags: 0
@@ -7987,7 +7992,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickSelectCharacter
         m_Mode: 3
         m_Arguments:
@@ -8248,7 +8253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickDisconnectFromNetwork
         m_Mode: 1
         m_Arguments:
@@ -8450,7 +8455,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickJoinLANGame
         m_Mode: 1
         m_Arguments:
@@ -8461,7 +8466,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: ActivatePanel
         m_Mode: 5
         m_Arguments:
@@ -8472,7 +8477,7 @@ MonoBehaviour:
           m_StringArgument: PanelAttemptingToConnect
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickCapturePlayerName
         m_Mode: 1
         m_Arguments:
@@ -9039,7 +9044,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839180093}
         m_MethodName: OnClickSelectCharacter
         m_Mode: 3
         m_Arguments:
