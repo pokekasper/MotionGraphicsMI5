@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     //Variablen
 	public float movementSpeed;
@@ -58,7 +59,8 @@ public class Player : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
             dreh = false;
-            Invoke("Shoot",spawnTime);
+            //Invoke("CmdShoot",spawnTime);
+			CmdShoot();
             Rotatet(ray, hitDist, playerPlane);
             Invoke("EnableMovement", 1f);
 
@@ -81,14 +83,26 @@ public class Player : MonoBehaviour
         }
 	}
 
-	void Shoot()
+	[Command]
+	void CmdShoot()
 	{
 
       //  Waiting(2f);
-		bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-        bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
-        bulletSpawn.Rotate(0, 180, 0);
-        axe.SetActive(false);
+		//bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
+		//bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
+        //bulletSpawn.Rotate(0, 180, 0);
+
+		var bulletSpawn1 = (GameObject)Instantiate(bullet, bulletSpawnPoint.transform.position,waffenhalter.transform.rotation);
+		bulletSpawn1.transform.rotation = bulletSpawnPoint.transform.rotation;
+        bulletSpawn1.transform.Rotate(0, 270, 0);
+
+		//bulletSpawn1.GetComponent<Rigidbody>().velocity = bulletSpawn1.transform.forward * 6;
+
+		NetworkServer.Spawn(bulletSpawn1);
+
+		Destroy(bulletSpawn1, 2.0f);
+
+        //axe.SetActive(false);
 
 
     }
