@@ -42,7 +42,7 @@ public class TestAnimation : MonoBehaviour
              {
             anim.SetBool("isShooting", true);
              }
-            else if (Input.GetMouseButtonDown(0) && i == 1)
+            else if (Input.GetMouseButtonDown(0) && i == 0)
             {
                 anim.SetBool("isShooting", true);
             }
