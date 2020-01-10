@@ -28,15 +28,15 @@ public class ThrowAxe : MonoBehaviour
     }
     private void Update()
     {
-        
-       
-       // Debug.Log(direction.z);
+
+        Debug.Log("hallo i2323 0");
+        // Debug.Log(direction.z);
 
 
         if (Input.GetMouseButtonDown(0))
         {
             if (i ==0 ) {
-                
+                Debug.Log("hallo i 0");
                 throwed = true;
                 Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
