@@ -3916,6 +3916,7 @@ MonoBehaviour:
   characterSelectedText: {fileID: 1117309171}
   characterPrefabs:
   - {fileID: 8830110519166379609, guid: e9e42687c56f49b4e840476e9b70a1c1, type: 3}
+  - {fileID: 8058234621022999862, guid: 3d03217ba816dbc42b18b62a9959958a, type: 3}
 --- !u!4 &839180095
 Transform:
   m_ObjectHideFlags: 0
