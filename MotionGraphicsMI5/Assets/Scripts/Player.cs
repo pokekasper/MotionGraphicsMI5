@@ -26,6 +26,7 @@ public class Player : NetworkBehaviour
     public float spawnTime=0.4f;
     public GameObject axe;
     public GameObject waffenhalter;
+    public int i = 0;
 
     //Methoden
     void Update()
@@ -50,19 +51,45 @@ public class Player : NetworkBehaviour
         }
 
 
-        
-        
+       
 
-        
 
-		//Shooting
-		if (Input.GetMouseButtonDown(0))
+
+
+        //Shooting
+        if (Input.GetMouseButtonDown(0))
 		{
-            dreh = false;
-            //Invoke("CmdShoot",spawnTime);
-			CmdShoot();
-            Rotatet(ray, hitDist, playerPlane);
-            Invoke("EnableMovement", 1f);
+            Debug.Log("Axe:" + axe);
+            if(axe != null)
+            {
+                Debug.Log("Axe nicht null:" + axe);
+                if (i == 0)
+                {
+                    i++;
+                    Rotatet(ray, hitDist, playerPlane);
+                    StartCoroutine(Waiting());
+                 /*   axe.SetActive(false);
+                    i++;
+                    Rotatet(ray, hitDist, playerPlane);
+                    CmdShoot();
+                    */
+                }
+                else if (i == 1)
+                {
+                    axe.SetActive(true);
+                    i = 0;
+                }
+            }
+            else
+            {
+                dreh = false;
+                //Invoke("CmdShoot",spawnTime);
+                CmdShoot();
+
+                Rotatet(ray, hitDist, playerPlane);
+                Invoke("EnableMovement", 1f);
+            }
+            Debug.Log("werfen i:" + i);
 
         
 			
@@ -81,20 +108,40 @@ public class Player : NetworkBehaviour
 
 
         }
-	}
+        IEnumerator Waiting()
+        {
+            Debug.Log("Mill:" + Time.deltaTime);
+            yield return new WaitForSeconds(0.1f);
+            Debug.Log("Mill:" + Time.deltaTime);
+            axe.SetActive(false);
+           
+            
+            CmdShoot();
+
+        }
+    }
+    
 
 	[Command]
 	void CmdShoot()
 	{
 
-      //  Waiting(2f);
-		//bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-		//bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
+        //  Waiting(2f);
+        //bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
+        //bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
         //bulletSpawn.Rotate(0, 180, 0);
-
-		var bulletSpawn1 = (GameObject)Instantiate(bullet, bulletSpawnPoint.transform.position,waffenhalter.transform.rotation);
-		bulletSpawn1.transform.rotation = bulletSpawnPoint.transform.rotation;
-        bulletSpawn1.transform.Rotate(0, 270, 0);
+        var bulletSpawn1 = (GameObject)Instantiate(bullet, bulletSpawnPoint.transform.position, waffenhalter.transform.rotation);
+        bulletSpawn1.transform.rotation = bulletSpawnPoint.transform.rotation;
+        if (axe != null)
+        {
+            bulletSpawn1.transform.Rotate(0, 120, 0);
+        }
+        else
+        {
+            bulletSpawn1.transform.Rotate(0, 270, 0);
+        }
+		
+        
 
 		//bulletSpawn1.GetComponent<Rigidbody>().velocity = bulletSpawn1.transform.forward * 6;
 
@@ -125,13 +172,13 @@ public class Player : NetworkBehaviour
         }
     }
  
-	            void Move(Vector3 vector)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(vector);
-                targetRotation.x = 0;
-                targetRotation.z = 0;
-                playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
-                //Bewegung
-                transform.position += vector * movementSpeed * Time.deltaTime;
-            }
+	void Move(Vector3 vector)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(vector);
+        targetRotation.x = 0;
+        targetRotation.z = 0;
+        playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 10f * Time.deltaTime);
+        //Bewegung
+        transform.position += vector * movementSpeed * Time.deltaTime;
+    }
 }

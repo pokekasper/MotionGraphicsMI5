@@ -270,6 +270,7 @@ MonoBehaviour:
   spawnTime: 0.4
   axe: {fileID: 0}
   waffenhalter: {fileID: 8058234621551205840}
+  i: 0
 --- !u!54 &8058234621022999863
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -435,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4958711028584248225}
-  throwAxe: {fileID: 0}
+  axe: {fileID: 0}
 --- !u!1 &8058234621027322422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 8058234621326324169}
-  throwAxe: {fileID: 0}
+  axe: {fileID: 0}
 --- !u!1 &8058234621408008058
 GameObject:
   m_ObjectHideFlags: 0

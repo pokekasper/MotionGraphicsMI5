@@ -8,7 +8,7 @@ public class TestAnimation : MonoBehaviour
     private bool dead;
     
     int i;
-    public ThrowAxe throwAxe;
+    public Player axe;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +23,9 @@ public class TestAnimation : MonoBehaviour
     {
       //  if (!dead)
        // {
-            if (throwAxe != null)
+            if (axe != null)
             {
-                i = throwAxe.i;
+                i = axe.i;
             }
 
             Debug.Log("i:" + i);
@@ -38,11 +38,11 @@ public class TestAnimation : MonoBehaviour
             {
                 anim.SetBool("isWalking", false);
             }
-            if(Input.GetMouseButtonDown(0)&& throwAxe==null)
+            if(Input.GetMouseButtonDown(0)&& axe==null)
              {
             anim.SetBool("isShooting", true);
              }
-            else if (Input.GetMouseButtonDown(0) && i == 0)
+            else if (Input.GetMouseButtonDown(0) && i == 1)
             {
                 anim.SetBool("isShooting", true);
             }

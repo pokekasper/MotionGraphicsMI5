@@ -15,7 +15,7 @@ public class Player_Network : NetworkBehaviour {
 
     public override void OnStartLocalPlayer()
     {
-        GetComponent<Player2>().enabled = true;
+        GetComponent<Player>().enabled = true;
 		GetComponent<TestAnimation>().enabled = true;
 		axe.GetComponent<ThrowAxe>().enabled = true;
 		axe.GetComponent<WeaponScript>().enabled = true;
