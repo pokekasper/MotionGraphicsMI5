@@ -27,7 +27,8 @@ public class Player : NetworkBehaviour
     public GameObject axe;
     public GameObject waffenhalter;
     public int i = 0;
-
+    GameObject bulletSpawn1;
+    public float activeTime = 2.0f;
     //Methoden
     void Update()
     {
@@ -63,18 +64,20 @@ public class Player : NetworkBehaviour
                 Debug.Log("Axe nicht null:" + axe);
                 if (i == 0)
                 {
-                    i++;
+                    
                     Rotatet(ray, hitDist, playerPlane);
                     StartCoroutine(Waiting());
-                 /*   axe.SetActive(false);
+                    /*   axe.SetActive(false);
+                       i++;
+                       Rotatet(ray, hitDist, playerPlane);
+                       CmdShoot();
+                       */
                     i++;
-                    Rotatet(ray, hitDist, playerPlane);
-                    CmdShoot();
-                    */
                 }
                 else if (i == 1)
                 {
                     axe.SetActive(true);
+                    Destroy(bulletSpawn1);
                     i = 0;
                 }
             }
@@ -115,7 +118,7 @@ public class Player : NetworkBehaviour
            
             
             CmdShoot();
-
+            
         }
     }
     
@@ -128,7 +131,7 @@ public class Player : NetworkBehaviour
         //bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
         //bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
         //bulletSpawn.Rotate(0, 180, 0);
-        var bulletSpawn1 = (GameObject)Instantiate(bullet, bulletSpawnPoint.transform.position, waffenhalter.transform.rotation);
+        bulletSpawn1 = (GameObject)Instantiate(bullet, bulletSpawnPoint.transform.position, waffenhalter.transform.rotation);
         bulletSpawn1.transform.rotation = bulletSpawnPoint.transform.rotation;
         if (axe != null)
         {
@@ -144,13 +147,27 @@ public class Player : NetworkBehaviour
 		//bulletSpawn1.GetComponent<Rigidbody>().velocity = bulletSpawn1.transform.forward * 6;
 
 		NetworkServer.Spawn(bulletSpawn1);
+        Invoke("activeSet", activeTime);
+        Destroy(bulletSpawn1, activeTime);
+        
+       
 
-		Destroy(bulletSpawn1, 2.0f);
 
         //axe.SetActive(false);
 
 
     }
+    void activeSet()
+    {
+        if(axe != null)
+        {
+            
+            axe.SetActive(true);
+        }
+            
+    }
+
+
     void EnableMovement()
     {
         dreh = true;
