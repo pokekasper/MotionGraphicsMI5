@@ -51,7 +51,8 @@ public class Bullet : MonoBehaviour
     }
     void Update()
     {
-        player = gameObject.GetComponent<Player>();
+        //player = gameObject.GetComponent<Player>();
+
 
         transform.position += direction *speed* Time.deltaTime;
 
