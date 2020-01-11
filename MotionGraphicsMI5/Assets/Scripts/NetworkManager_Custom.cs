@@ -177,10 +177,9 @@ public class NetworkManager_Custom : NetworkManager {
 
         public void OnClickStartLANHost()
         {
-			Debug.Log("fdg");
             SetPort();
-			Debug.Log("fdg");
             NetworkManager.singleton.StartHost();
+			
         }
 
         public void OnClickStartServerOnly()
@@ -208,6 +207,7 @@ public class NetworkManager_Custom : NetworkManager {
         {
             Application.Quit();
         }
+
 
         #endregion
 

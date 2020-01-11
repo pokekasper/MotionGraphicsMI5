@@ -31,9 +31,7 @@ public class Player : NetworkBehaviour
     //Methoden
     void Update()
     {
-        
-
-
+		
         //Spieler ist auf die MAus gerichtet
         //Aufspüren der Kameraposition
         Plane playerPlane = new Plane(Vector3.up, transform.position);

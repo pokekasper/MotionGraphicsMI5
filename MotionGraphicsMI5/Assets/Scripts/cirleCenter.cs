@@ -7,14 +7,20 @@ public class cirleCenter : MonoBehaviour
     public SphereCollider coll;
     public float speed;
     public float endRadius;
-    
+    GameObject[] array;
     
     void Update()
     {
-        if (coll.radius > endRadius)
-        {
-            coll.radius -= speed;
-        }
+		array= GameObject.FindGameObjectsWithTag("PlayerHolder");
+		if(array.Length == 2)
+		{
+			if (coll.radius > endRadius)
+			{
+				coll.radius -= speed;
+			}
+		}
+		
+        
        
        
         //coll.size = new Vector3(coll.size.x - speed, coll.size.y, coll.size.z - speed);

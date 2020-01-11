@@ -3022,7 +3022,7 @@ GameObject:
   - component: {fileID: 3928123432580270018}
   m_Layer: 0
   m_Name: Player Holder 4
-  m_TagString: Player
+  m_TagString: PlayerHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
