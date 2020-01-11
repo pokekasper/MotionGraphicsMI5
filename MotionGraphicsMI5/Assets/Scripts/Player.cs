@@ -64,7 +64,8 @@ public class Player : NetworkBehaviour
                 Debug.Log("Axe nicht null:" + axe);
                 if (i == 0)
                 {
-                    
+                    dreh = false;
+                    Invoke("EnableMovement", 1f);
                     Rotatet(ray, hitDist, playerPlane);
                     StartCoroutine(Waiting());
                     /*   axe.SetActive(false);
