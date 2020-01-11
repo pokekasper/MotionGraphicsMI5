@@ -22,7 +22,7 @@ public class cirleCenter : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(new Vector3(0, 10, 0), coll.radius);
+        Gizmos.DrawWireSphere(new Vector3(0, gameObject.transform.position.y, 0), coll.radius);
         
     }
 }
