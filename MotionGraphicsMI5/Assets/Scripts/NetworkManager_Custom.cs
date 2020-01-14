@@ -54,14 +54,14 @@ public class NetworkManager_Custom : NetworkManager {
 
         public override void OnClientConnect(NetworkConnection conn)
         {
-            
+            //Debug.Log(playerControllerId);
         }
 
         public override void OnClientSceneChanged(NetworkConnection conn)
         {
             IntegerMessage msg = new IntegerMessage(characterSelected);
-			Debug.Log(characterSelected);
-			Debug.Log(characterPrefabs.Length);
+			//Debug.Log(characterSelected);
+			//Debug.Log(characterPrefabs.Length);
             ClientScene.AddPlayer(conn, playerControllerId, msg);
         }
 

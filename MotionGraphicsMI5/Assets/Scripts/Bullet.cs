@@ -17,53 +17,50 @@ public class Bullet : MonoBehaviour
     Vector3 hitpoint;
     public GameObject parent;
 	float hitDist = 0.0f;
-    public Player player;
-
+    public GameObject player;
+	Vector3 neuerVector;
+	private int n;
+	public float rotationSpeed;
 
 	void Start()
     {
         
+		float x = Input.GetAxis("Horizontal");
+		float z = Input.GetAxis("Vertical");
+		neuerVector = new Vector3(x,0,z).normalized;
+		Debug.Log("neuer Vector"+ neuerVector);
+		Debug.Log(player.transform.rotation);
         
         timeCount = 0;
-        /* 
-			Plane playerPlane = new Plane(Vector3.up, transform.position);
-			Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (playerPlane.Raycast(ray, out hitDist))
-			{
-				Vector3 targetPoint = ray.GetPoint(hitDist);
-				Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-				targetRotation.x = 0;
-				targetRotation.z = 0;
-				transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
-
-
-			}*/
-        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
-        {
-            mousePosition = hit.point;
-        }
-        mousePosition.y = transform.position.y;
-        direction = (mousePosition - transform.position).normalized;
-        Debug.Log(direction.z);
+        //Debug.Log(direction.z);
         //transform.rotation = new Quaternion(0, direction.y, 0, 0);
     }
     void Update()
     {
+		 transform.Rotate(Vector3.left * rotationSpeed * Time.deltaTime);
         //player = gameObject.GetComponent<Player>();
 
+		//Vector3 direction = player.transform.forward;
+		//player.transform.rotation.y
 
-        transform.position += direction *speed* Time.deltaTime;
+		//Debug.Log(direction);
+		//direction.
+
+
+		//gameObject.GetComponent<Rigidbody>().velocity = transform.forward * 6;
+		//gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,direction.y,0) * speed, ForceMode.Impulse);
+        //transform.position += transform.forward *speed* Time.deltaTime;
 
         //Debug.Log(mousePosition);
-        //transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
        
-       transform.Rotate(rotation);
-            
-
        
+       //stransform.Rotate(rotation);
+      
+		gameObject.GetComponent<Rigidbody>().AddForce(neuerVector * speed, ForceMode.Impulse);
+		 //transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
 
+		//transform.Rotate(0,x,0);
+		//transform.Translate(0,0,z);
         //Vorwärtsbewegung der "Kugel"
         
         timeCount += 1* Time.deltaTime;
@@ -78,14 +75,14 @@ public class Bullet : MonoBehaviour
 	public void OnTriggerEnter(Collider other)
 	{
         
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
 
 		if(other.tag == "Enemy")
 		{
 
             triggeringEnemy = other.gameObject;
 			triggeringEnemy.GetComponent<Enemy>().health -= damage;
-            Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
+            //Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
 			Destroy(this.gameObject);
 		}
         

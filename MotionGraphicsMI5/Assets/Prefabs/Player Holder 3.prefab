@@ -267,6 +267,10 @@ MonoBehaviour:
   waitTime: 0.5
   bullet: {fileID: 2723063539299354848, guid: 5fc46809fd8d11b48aa12daefd3c291e, type: 3}
   points: 0
+  x: 0
+  y: 0
+  xx: 0
+  yy: 0
   spawnTime: 0.4
   axe: {fileID: 0}
   waffenhalter: {fileID: 8058234621551205840}

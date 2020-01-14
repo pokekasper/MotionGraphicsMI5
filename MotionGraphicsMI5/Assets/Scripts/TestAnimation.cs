@@ -28,7 +28,7 @@ public class TestAnimation : MonoBehaviour
                 i = axe.i;
             }
 
-            Debug.Log("i:" + i);
+            //Debug.Log("i:" + i);
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey("space"))
             {
                 anim.SetBool("isWalking", true);
@@ -38,12 +38,11 @@ public class TestAnimation : MonoBehaviour
             {
                 anim.SetBool("isWalking", false);
             }
-            if(Input.GetMouseButtonDown(0)&& axe==null)
+            if(Input.GetMouseButtonDown(1)&& axe==null)
              {
             anim.SetBool("isShooting", true);
              }
-            else if (Input.GetMouseButtonDown(0) && i
-			== 1)
+            else if (Input.GetMouseButtonDown(1) && i== 1)
             {
                 anim.SetBool("isShooting", true);
             }

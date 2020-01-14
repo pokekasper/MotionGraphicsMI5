@@ -12,8 +12,8 @@ public class Circle : MonoBehaviour
     {
         if(other == trigger)
         {
-            Debug.Log(gameObject);
-            Debug.Log("Selected Trigger");
+            //Debug.Log(gameObject);
+            //Debug.Log("Selected Trigger");
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             outside = true;
         }

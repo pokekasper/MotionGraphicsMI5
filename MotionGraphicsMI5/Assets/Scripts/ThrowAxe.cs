@@ -29,7 +29,7 @@ public class ThrowAxe : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log("hallo i2323 0");
+        //Debug.Log("hallo i2323 0");
         // Debug.Log(direction.z);
 
 

@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         // player.GetComponent<Player2>().points += pointsToGive;
         //Debug.Log("Player has now " + player.GetComponent<Player2>().points + " points");
         dead = true;
-        Debug.Log("Tot!");
+        //Debug.Log("Tot!");
        // Destroy(this.gameObject);
 
 		

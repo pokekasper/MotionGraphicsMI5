@@ -284,7 +284,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992544991132034572}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.443, z: 0.095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -295,7 +295,7 @@ Transform:
   - {fileID: 992544991131941414}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &65206106227634394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ BoxCollider:
   m_GameObject: {fileID: 992544991132034572}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.07438186, y: 0.8055544, z: 0.38004315}
   m_Center: {x: -0.088726416, y: 0.12978077, z: 0.02540496}
@@ -371,13 +371,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3b6ca7d90ecde4791cfe3d1f1b964a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 0.1
   maxTime: 10
   timeCount: 0
   rotation: {x: -8, y: 0, z: 0}
   damage: 25
   parent: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 8830110519166379609, guid: e9e42687c56f49b4e840476e9b70a1c1, type: 3}
+  rotationSpeed: 500
 --- !u!114 &5230021863006119134
 MonoBehaviour:
   m_ObjectHideFlags: 0

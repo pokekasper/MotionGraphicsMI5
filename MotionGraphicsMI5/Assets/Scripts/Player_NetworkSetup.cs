@@ -11,7 +11,7 @@ public class Player_NetworkSetup : NetworkBehaviour
 		
 		if (isLocalPlayer)
 		{
-			Debug.Log("Test");
+			//Debug.Log("Test");
 			GameObject.Find("Main Camera").SetActive(false);
 
 			GetComponent<Player2>().enabled = true;

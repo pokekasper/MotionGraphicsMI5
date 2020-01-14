@@ -21,8 +21,10 @@ public class Player : NetworkBehaviour
     private bool dreh = true;
 
     public float points;
-    private float x;
-    private float y;
+    public float x;
+    public float y;
+	public float xx;
+    public float yy;
     public float spawnTime=0.4f;
     public GameObject axe;
     public GameObject waffenhalter;
@@ -32,6 +34,7 @@ public class Player : NetworkBehaviour
     //Methoden
     void Update()
     {
+		
 		
         //Spieler ist auf die MAus gerichtet
         //Aufspüren der Kameraposition
@@ -50,13 +53,17 @@ public class Player : NetworkBehaviour
         }
 
 
-       
+       if(Input.GetAxisRaw("Horizontal")!=0 && Input.GetAxisRaw("Vertical") != 0)
+		{
+			xx =Input.GetAxisRaw("Horizontal");
+			yy =Input.GetAxisRaw("Vertical");
+		}
 
 
 
 
         //Shooting
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
 		{
             Debug.Log("Axe:" + axe);
             if(axe != null)
@@ -121,8 +128,41 @@ public class Player : NetworkBehaviour
             CmdShoot();
             
         }
+
+		if (!isLocalPlayer)
+		{
+			return;
+		}
+
+		
+
+		float xs = Input.GetAxis("Horizontal");
+		float zs = Input.GetAxis("Vertical");
+
+		//transform.Rotate(0,xs,0);
+		//transform.Translate(0,0,zs);
+
+		if (Input.GetMouseButtonDown(1))
+		{
+			CmdFire();
+		}
     }
-    
+
+    [Command]
+	void CmdFire()
+	{
+		Vector3 vector4 = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y+1,playerObj.transform.position.z);
+		GameObject bullet1 = (GameObject)Instantiate(bullet, waffenhalter.transform.position, playerObj.transform.rotation);
+
+		bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * 6;
+		if (axe != null)
+        {
+            bullet1.transform.Rotate(0, 180, 0);
+        }
+		NetworkServer.Spawn(bullet1);
+
+		Destroy(bullet1, 2);
+	}
 
 	[Command]
 	void CmdShoot()
@@ -134,14 +174,14 @@ public class Player : NetworkBehaviour
         //bulletSpawn.Rotate(0, 180, 0);
         bulletSpawn1 = (GameObject)Instantiate(bullet, bulletSpawnPoint.transform.position, waffenhalter.transform.rotation);
         bulletSpawn1.transform.rotation = bulletSpawnPoint.transform.rotation;
-        if (axe != null)
+        /*if (axe != null)
         {
             bulletSpawn1.transform.Rotate(0, 120, 0);
         }
         else
         {
             bulletSpawn1.transform.Rotate(0, 270, 0);
-        }
+        }*/
 		
         
 
