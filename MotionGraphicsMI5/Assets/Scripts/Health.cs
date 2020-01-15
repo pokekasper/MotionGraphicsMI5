@@ -21,6 +21,7 @@ public class Health : NetworkBehaviour
 		if(currentHealth <= 0)
 		{
 			currentHealth =0;
+            gameObject.GetComponent<Player>().alive = false;
 			Debug.Log("Dead");
 		}
 	}

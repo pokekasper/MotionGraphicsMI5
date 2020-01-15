@@ -6,6 +6,7 @@ public class TestAnimation : MonoBehaviour
 {
     public Animator anim;
     private bool dead;
+    bool alive;
     
     int i;
     public Player axe;
@@ -14,7 +15,7 @@ public class TestAnimation : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         //dead = Get
-        
+        alive = gameObject.GetComponent<Player>().alive;
         
     }
 
@@ -23,36 +24,40 @@ public class TestAnimation : MonoBehaviour
     {
       //  if (!dead)
        // {
-            if (axe != null)
-            {
-                i = axe.i;
-            }
+        if (axe != null)
+        {
+            i = axe.i;
+        }
 
-            //Debug.Log("i:" + i);
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey("space"))
-            {
-                anim.SetBool("isWalking", true);
+        //Debug.Log("i:" + i);
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey("space"))
+        {
+            anim.SetBool("isWalking", true);
 
-            }
-            else
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+        if(Input.GetMouseButtonDown(1)&& axe==null)
             {
-                anim.SetBool("isWalking", false);
+        anim.SetBool("isShooting", true);
             }
-            if(Input.GetMouseButtonDown(1)&& axe==null)
-             {
+        else if (Input.GetMouseButtonDown(1) && i== 1)
+        {
             anim.SetBool("isShooting", true);
-             }
-            else if (Input.GetMouseButtonDown(1) && i== 1)
-            {
-                anim.SetBool("isShooting", true);
-            }
-            else
-            {
-                anim.SetBool("isShooting", false);
-            }
+        }
+        else
+        {
+            anim.SetBool("isShooting", false);
+        }
         if (Input.GetKey("i"))
         {
             Application.LoadLevel(Application.loadedLevel);
+        }
+        if (!alive)
+        {
+            anim.SetBool("isDead", true);
         }
       //  }
         

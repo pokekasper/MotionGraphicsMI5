@@ -450,6 +450,7 @@ MonoBehaviour:
   waffenhalter: {fileID: 8058234621551205840}
   i: 0
   activeTime: 2
+  alive: 1
 --- !u!54 &8058234621022999863
 Rigidbody:
   m_ObjectHideFlags: 0

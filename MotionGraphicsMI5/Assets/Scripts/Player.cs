@@ -32,132 +32,139 @@ public class Player : NetworkBehaviour
     GameObject bulletSpawn1;
     public float activeTime = 2.0f;
     int time=40;
+    public bool alive= true;
     //Methoden
     void Update()
     {
-		
-		
-        //Spieler ist auf die MAus gerichtet
-        //Aufspüren der Kameraposition
-        Plane playerPlane = new Plane(Vector3.up, transform.position);
-
-        //Postion der Maus
-        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        float hitDist = 0.0f;
-        prevPos = transform.position;
-
-        if (!Input.anyKey)
+        Debug.Log("alive:"+alive);
+        if (alive)
         {
 
-            Rotatet(ray, hitDist, playerPlane);
-        }
+            //Spieler ist auf die MAus gerichtet
+            //Aufspüren der Kameraposition
+            Plane playerPlane = new Plane(Vector3.up, transform.position);
 
+            //Postion der Maus
+            Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
 
-       if(Input.GetAxisRaw("Horizontal")!=0 && Input.GetAxisRaw("Vertical") != 0)
-		{
-			xx =Input.GetAxisRaw("Horizontal");
-			yy =Input.GetAxisRaw("Vertical");
-		}
+            float hitDist = 0.0f;
+            prevPos = transform.position;
 
-
-
-
-        //Shooting
-        if (Input.GetKeyDown(KeyCode.Space))
-		{
-            Debug.Log("Axe:" + axe);
-            if(axe != null)
+            if (!Input.anyKey)
             {
-                Debug.Log("Axe nicht null:" + axe);
-                if (i == 0)
-                {
-                    dreh = false;
-                    Invoke("EnableMovement", 1f);
-                    Rotatet(ray, hitDist, playerPlane);
-                    StartCoroutine(Waiting());
-                    /*   axe.SetActive(false);
-                       i++;
-                       Rotatet(ray, hitDist, playerPlane);
-                       CmdShoot();
-                       */
-                    i++;
-                }
-                else if (i == 1)
-                {
-                    axe.SetActive(true);
-                    Destroy(bulletSpawn1);
-                    i = 0;
-                }
-            }
-            else
-            {
-                dreh = false;
-                StartCoroutine(Waiting());
-                //Invoke("CmdShoot",spawnTime);
-                
 
                 Rotatet(ray, hitDist, playerPlane);
-                Invoke("EnableMovement", 1f);
             }
-            Debug.Log("werfen i:" + i);
-
-        
-			
-		}
-        if(!Input.GetMouseButtonDown(0) && dreh)
-        {
-            x = Input.GetAxisRaw("Horizontal");
-            y = Input.GetAxisRaw("Vertical");
 
 
-            if (x != 0 || y != 0)
+            if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0)
             {
-                Vector3 direction = new Vector3(x, 0, y).normalized;
-                Move(direction);
+                xx = Input.GetAxisRaw("Horizontal");
+                yy = Input.GetAxisRaw("Vertical");
             }
 
 
-        }
-        IEnumerator Waiting()
-        {
-            Debug.Log("Mill:" + Time.deltaTime);
-            yield return new WaitForSeconds(0.4f);
-            Debug.Log("Mill:" + Time.deltaTime);
-            CmdFire();
-            
+
+
+            //Shooting
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Axe:" + axe);
+                if (axe != null)
+                {
+                    Debug.Log("Axe nicht null:" + axe);
+                    if (i == 0)
+                    {
+                        dreh = false;
+                        Invoke("EnableMovement", 1f);
+                        Rotatet(ray, hitDist, playerPlane);
+                        StartCoroutine(Waiting());
+                        /*   axe.SetActive(false);
+                           i++;
+                           Rotatet(ray, hitDist, playerPlane);
+                           CmdShoot();
+                           */
+                        i++;
+                    }
+                    else if (i == 1)
+                    {
+                        axe.SetActive(true);
+                        Destroy(bulletSpawn1);
+                        i = 0;
+                    }
+                }
+                else
+                {
+                    dreh = false;
+                    StartCoroutine(Waiting());
+                    //Invoke("CmdShoot",spawnTime);
+
+
+                    Rotatet(ray, hitDist, playerPlane);
+                    Invoke("EnableMovement", 1f);
+                }
+                Debug.Log("werfen i:" + i);
+
+
+
+            }
+            if (!Input.GetMouseButtonDown(0) && dreh)
+            {
+                x = Input.GetAxisRaw("Horizontal");
+                y = Input.GetAxisRaw("Vertical");
+
+
+                if (x != 0 || y != 0)
+                {
+                    Vector3 direction = new Vector3(x, 0, y).normalized;
+                    Move(direction);
+                }
+
+
+            }
+            IEnumerator Waiting()
+            {
+                Debug.Log("Mill:" + Time.deltaTime);
+                yield return new WaitForSeconds(0.4f);
+                Debug.Log("Mill:" + Time.deltaTime);
+                CmdFire();
+
+            }
+
+
+            if (!isLocalPlayer)
+            {
+                return;
+            }
+
+            time++;
+            if (time > 55)
+            {
+                dreh = true;
+            }
+            float xs = Input.GetAxis("Horizontal");
+            float zs = Input.GetAxis("Vertical");
+
+
+            //transform.Rotate(0,xs,0);
+            //transform.Translate(0,0,zs);
+
+            if (time > 40)
+            {
+                if (Input.GetMouseButtonDown(1))
+                {
+                    time = 0;
+                    dreh = false;
+                    StartCoroutine(Waiting());
+
+                }
+                // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+            }
         }
         
-
-        if (!isLocalPlayer)
-		{
-			return;
-		}
-
-        time++;
-        if (time > 55)
-        {
-            dreh = true;
-        }
-        float xs = Input.GetAxis("Horizontal");
-		float zs = Input.GetAxis("Vertical");
-
-
-        //transform.Rotate(0,xs,0);
-        //transform.Translate(0,0,zs);
-
-        if (time > 40)
-        {
-            if (Input.GetMouseButtonDown(1))
-		    {
-                time = 0;
-                dreh = false;
-                StartCoroutine(Waiting());
-            
-            }
-            // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-   
-		}
+		
+        
         
     }
 

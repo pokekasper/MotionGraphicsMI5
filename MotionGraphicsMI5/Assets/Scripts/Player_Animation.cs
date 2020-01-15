@@ -19,6 +19,10 @@ public class Player_Animation : NetworkBehaviour {
         {
             return;
         }
+        if (!gameObject.GetComponent<Player>().alive)
+        {
+            playerAnimator.SetBool("isDead", true);
+        }
 
         if (Mathf.Abs(Input.GetAxis("Vertical")) > 0 ||
             Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
@@ -30,6 +34,7 @@ public class Player_Animation : NetworkBehaviour {
         {
             playerAnimator.SetBool("isWalking", false);
         }
+
     }
 
 }
