@@ -24,16 +24,18 @@ public class Bullet : MonoBehaviour
 
 	void Start()
     {
-        
+        timeCount = 0;
+       /* 
 		float x = Input.GetAxis("Horizontal");
 		float z = Input.GetAxis("Vertical");
 		neuerVector = new Vector3(x,0,z).normalized;
 		Debug.Log("neuer Vector"+ neuerVector);
-		Debug.Log(player.transform.rotation);
+		*/
         
-        timeCount = 0;
+        
         //Debug.Log(direction.z);
         //transform.rotation = new Quaternion(0, direction.y, 0, 0);
+       // Debug.Log(player.transform.rotation);
     }
     void Update()
     {
@@ -56,7 +58,7 @@ public class Bullet : MonoBehaviour
        
        //stransform.Rotate(rotation);
       
-		gameObject.GetComponent<Rigidbody>().AddForce(neuerVector * speed, ForceMode.Impulse);
+		//gameObject.GetComponent<Rigidbody>().AddForce(neuerVector * speed, ForceMode.Impulse);
 		 //transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
 
 		//transform.Rotate(0,x,0);

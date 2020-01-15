@@ -135,13 +135,15 @@ public class Player : NetworkBehaviour
 
 		float xs = Input.GetAxis("Horizontal");
 		float zs = Input.GetAxis("Vertical");
+        
 
-		//transform.Rotate(0,xs,0);
-		//transform.Translate(0,0,zs);
+        //transform.Rotate(0,xs,0);
+        //transform.Translate(0,0,zs);
 
-		if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
 		{
             dreh = false;
+           // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             Invoke("EnableMovement", 1f);
             StartCoroutine(Waiting());
             
