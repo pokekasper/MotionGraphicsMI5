@@ -136,7 +136,7 @@ public class Player : NetworkBehaviour
             {
                 return;
             }
-
+            //55 muss noch angepasst werden
             time++;
             if (time > 55)
             {
@@ -178,6 +178,10 @@ public class Player : NetworkBehaviour
 		if (axe != null)
         {
             bullet1.transform.Rotate(0, 180, 0);
+        }
+        if(axe == null)
+        {
+            bullet1.transform.Rotate(90, 90, 90);
         }
 		NetworkServer.Spawn(bullet1);
 

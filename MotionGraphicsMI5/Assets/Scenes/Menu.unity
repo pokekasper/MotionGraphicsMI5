@@ -1696,9 +1696,11 @@ MonoBehaviour:
   m_OfflineScene: Menu
   m_OnlineScene: Multiplayer_Neu
   m_SpawnPrefabs:
-  - {fileID: 2723063539299354848, guid: 5fc46809fd8d11b48aa12daefd3c291e, type: 3}
+  - {fileID: 2723063539299354848, guid: b85627ca05740a745b3025d9eb96978e, type: 3}
   - {fileID: 2574106951641679899, guid: b9b07fa370946c84980f31e950f351e7, type: 3}
-  - {fileID: 992544991132034572, guid: 735ed39f6504f204f8331a9c349709d7, type: 3}
+  - {fileID: 115425147045866536, guid: e22775903bb14c944bfbfd6d637fe6cc, type: 3}
+  - {fileID: 691841451257072697, guid: aa8464d20a1c4d349a315695f994e390, type: 3}
+  - {fileID: 2723063539299354848, guid: 5fc46809fd8d11b48aa12daefd3c291e, type: 3}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -1766,8 +1768,10 @@ MonoBehaviour:
   mapSelectedText: {fileID: 0}
   characterSelectedText: {fileID: 0}
   characterPrefabs:
-  - {fileID: 8830110519166379609, guid: e9e42687c56f49b4e840476e9b70a1c1, type: 3}
+  - {fileID: 8058234621022999862, guid: 51654b4cc7ca672498e0dc4b5aad8dec, type: 3}
   - {fileID: 8058234621022999862, guid: 3d03217ba816dbc42b18b62a9959958a, type: 3}
+  - {fileID: 8058234621022999862, guid: 43180325e48ac17419dc91364663eda4, type: 3}
+  - {fileID: 8058234621022999862, guid: b77155b8835566d459e59495ea53f2a2, type: 3}
 --- !u!4 &839180095
 Transform:
   m_ObjectHideFlags: 0
@@ -1938,7 +1942,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 873849276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 839180093}
+        m_MethodName: OnClickSelectCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &873849276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,7 +2962,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1426697852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 839180093}
+        m_MethodName: OnClickSelectCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1426697852
 MonoBehaviour:
   m_ObjectHideFlags: 0
