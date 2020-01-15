@@ -124,9 +124,11 @@ public class Player : NetworkBehaviour
             yield return new WaitForSeconds(0.4f);
             Debug.Log("Mill:" + Time.deltaTime);
             CmdFire();
+            
         }
+        
 
-		if (!isLocalPlayer)
+        if (!isLocalPlayer)
 		{
 			return;
 		}
