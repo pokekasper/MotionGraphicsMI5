@@ -92,8 +92,9 @@ public class Player : NetworkBehaviour
             else
             {
                 dreh = false;
+                StartCoroutine(Waiting());
                 //Invoke("CmdShoot",spawnTime);
-                CmdShoot();
+                
 
                 Rotatet(ray, hitDist, playerPlane);
                 Invoke("EnableMovement", 1f);
@@ -120,13 +121,9 @@ public class Player : NetworkBehaviour
         IEnumerator Waiting()
         {
             Debug.Log("Mill:" + Time.deltaTime);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.4f);
             Debug.Log("Mill:" + Time.deltaTime);
-            axe.SetActive(false);
-           
-            
-            CmdShoot();
-            
+            CmdFire();
         }
 
 		if (!isLocalPlayer)
@@ -144,7 +141,10 @@ public class Player : NetworkBehaviour
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			CmdFire();
+            dreh = false;
+            Invoke("EnableMovement", 1f);
+            StartCoroutine(Waiting());
+            
 		}
     }
 
@@ -154,7 +154,7 @@ public class Player : NetworkBehaviour
 		Vector3 vector4 = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y+1,playerObj.transform.position.z);
 		GameObject bullet1 = (GameObject)Instantiate(bullet, waffenhalter.transform.position, playerObj.transform.rotation);
 
-		bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * 6;
+		bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * 10;
 		if (axe != null)
         {
             bullet1.transform.Rotate(0, 180, 0);
