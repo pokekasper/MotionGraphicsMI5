@@ -75,12 +75,43 @@ public class NetworkManager_Custom : NetworkManager {
                 id = i.value;
             }
 			
+			if(id == 0)
+			{			
+				Vector3 chosenSpawnPoint = new Vector3(1,0);
+				Quaternion chosenSpawnPointR = new Quaternion();
+				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
+				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
 			
-			Vector3 chosenSpawnPoint = new Vector3(0,0);
-			Quaternion chosenSpawnPointR = new Quaternion();
-            //Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
-            GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
-            NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+				NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+			}
+			else if(id == 1)
+			{			
+				Vector3 chosenSpawnPoint = new Vector3(5,0);
+				Quaternion chosenSpawnPointR = new Quaternion();
+				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
+				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
+			
+				NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+			}
+			else if(id == 2)
+			{			
+				Vector3 chosenSpawnPoint = new Vector3(0,0);
+				Quaternion chosenSpawnPointR = new Quaternion();
+				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
+				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
+			
+				NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+			}
+			else if(id == 3)
+			{
+				Vector3 chosenSpawnPoint = new Vector3(0,0);
+				Quaternion chosenSpawnPointR = new Quaternion();
+				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
+				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
+			
+				NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+			}
+            
         }
 
         #endregion
