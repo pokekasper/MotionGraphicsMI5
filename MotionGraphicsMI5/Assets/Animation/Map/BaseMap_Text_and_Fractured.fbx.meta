@@ -1287,12 +1287,17 @@ ModelImporter:
     4300508: Cube.002_cell.248_cell.004
     4300510: Cube.002_cell.248_cell.005
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100002, guid: 15904895ec152da4c9937aea90b1386d, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

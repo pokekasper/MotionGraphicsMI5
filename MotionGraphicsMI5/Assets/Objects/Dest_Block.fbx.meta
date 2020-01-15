@@ -41,7 +41,12 @@ ModelImporter:
     4300008: Cube_cell.004
     4300010: Cube_cell.005
     4300012: Cube_cell.006
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 7e33073c08473a14580d1eb4c32b37f4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

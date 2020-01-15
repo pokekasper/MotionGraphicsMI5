@@ -21,7 +21,12 @@ ModelImporter:
     4300000: Plane_cell
     4300002: Plane_cell.001
     4300004: Plane_cell.002
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: fee878bbf9d675e4e9d69105497a375f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
