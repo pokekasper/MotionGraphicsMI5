@@ -31,6 +31,7 @@ public class Player : NetworkBehaviour
     public int i = 0;
     GameObject bulletSpawn1;
     public float activeTime = 2.0f;
+    int time=40;
     //Methoden
     void Update()
     {
@@ -124,28 +125,40 @@ public class Player : NetworkBehaviour
             yield return new WaitForSeconds(0.4f);
             Debug.Log("Mill:" + Time.deltaTime);
             CmdFire();
+            
         }
+        
 
-		if (!isLocalPlayer)
+        if (!isLocalPlayer)
 		{
 			return;
 		}
 
-		
-
-		float xs = Input.GetAxis("Horizontal");
+        time++;
+        if (time > 55)
+        {
+            dreh = true;
+        }
+        float xs = Input.GetAxis("Horizontal");
 		float zs = Input.GetAxis("Vertical");
 
-		//transform.Rotate(0,xs,0);
-		//transform.Translate(0,0,zs);
 
-		if (Input.GetMouseButtonDown(1))
-		{
-            dreh = false;
-            Invoke("EnableMovement", 1f);
-            StartCoroutine(Waiting());
+        //transform.Rotate(0,xs,0);
+        //transform.Translate(0,0,zs);
+
+        if (time > 40)
+        {
+            if (Input.GetMouseButtonDown(1))
+		    {
+                time = 0;
+                dreh = false;
+                StartCoroutine(Waiting());
             
+            }
+            // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+   
 		}
+        
     }
 
     [Command]
