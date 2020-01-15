@@ -72,22 +72,21 @@ public class Bullet : MonoBehaviour
 		}
     }
 
-	public void OnTriggerEnter(Collider other)
+
+	private void OnCollisionEnter(Collision collision)
 	{
-        
-        //Debug.Log(other.gameObject.name);
-
-		if(other.tag == "Enemy")
+		var hit = collision.gameObject;
+		var health = hit.GetComponent<Health>();
+		if(health != null)
 		{
-
-            triggeringEnemy = other.gameObject;
-			triggeringEnemy.GetComponent<Enemy>().health -= damage;
-            //Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);
-			Destroy(this.gameObject);
+			health.TakeDamage(10);
 		}
-        
+
+		Destroy(gameObject);
 	}
-    public void DestroyObject(GameObject obj)
+
+
+	public void DestroyObject(GameObject obj)
     {
 
       //  GameObject waffenhalter = 
