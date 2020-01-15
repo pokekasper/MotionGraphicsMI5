@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: {fileID: 135181732108618090}
-  time: 0.1
+  time: 0.15
 --- !u!114 &114382627894142778
 MonoBehaviour:
   m_ObjectHideFlags: 0
