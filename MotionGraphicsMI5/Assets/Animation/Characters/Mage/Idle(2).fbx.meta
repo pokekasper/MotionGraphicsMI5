@@ -152,7 +152,22 @@ ModelImporter:
     13700000: Plane.004
     13700002: Plane.005
     13700004: Plane.006
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: b1f195e0130651c4b8ecdb20cf491698, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 9f35b974ca4530848a1daf958592669e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: f4d21af0658d1484b81e8d7f027cbddb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

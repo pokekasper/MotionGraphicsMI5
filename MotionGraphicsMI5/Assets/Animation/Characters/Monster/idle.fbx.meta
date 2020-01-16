@@ -78,7 +78,12 @@ ModelImporter:
     7400000: mixamo.com
     9500000: //RootNode
     13700000: Plane
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 240ebef5edc345a43a6cf5253c0cee55, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
