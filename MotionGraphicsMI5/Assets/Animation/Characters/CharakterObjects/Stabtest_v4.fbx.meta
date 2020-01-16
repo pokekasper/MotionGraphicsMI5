@@ -23,7 +23,22 @@ ModelImporter:
     4300000: Cylinder.004
     4300002: Icosphere
     4300004: Icosphere.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: e28da674a5cd4c14ab4bce4749559dda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 4379464fe2a59954d8ee1aeb4fcf8bbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: fdbd5690e4e034d459c63f4ef49e00aa, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

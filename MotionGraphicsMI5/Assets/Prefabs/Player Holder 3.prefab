@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6a3b792cd747149bd21d103144078e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 2257057682012257215}
   camTransform: {fileID: 954584121034728086}
   lerpRate: 15
 --- !u!114 &6233790185449632904
