@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 6233790185449632904}
   - component: {fileID: 114127633713844182}
   - component: {fileID: 1570122811396286612}
+  - component: {fileID: 114853088512510184}
   m_Layer: 0
   m_Name: Player Holder 5
   m_TagString: PlayerHolder
@@ -552,6 +553,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4958711028584248225}
+--- !u!114 &114853088512510184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058234621022999862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce781e2f22602964291cb7aa373cb262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coll: {fileID: 7039031094748423757, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
+  outOfZone: 0
+  interval: 100
+  damage: 2
+  time: 0
 --- !u!1 &9124439747163574750
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,15 +790,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1028c623c8b6a446a7f8d8305370a98, type: 3}
---- !u!1 &9043847310618265565 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: b1028c623c8b6a446a7f8d8305370a98,
-    type: 3}
-  m_PrefabInstance: {fileID: 9043847310618362239}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9043847310618265561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: b1028c623c8b6a446a7f8d8305370a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 9043847310618362239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9043847310618265565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: b1028c623c8b6a446a7f8d8305370a98,
     type: 3}
   m_PrefabInstance: {fileID: 9043847310618362239}
   m_PrefabAsset: {fileID: 0}

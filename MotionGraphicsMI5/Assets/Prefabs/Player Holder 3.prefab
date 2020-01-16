@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 6233790185449632904}
   - component: {fileID: 114127633713844182}
   - component: {fileID: 1172436073359871292}
+  - component: {fileID: 114160721526449888}
   m_Layer: 0
   m_Name: Player Holder 3
   m_TagString: PlayerHolder
@@ -566,6 +567,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4958711028584248225}
+--- !u!114 &114160721526449888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058234621022999862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce781e2f22602964291cb7aa373cb262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coll: {fileID: 7039031094748423757, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
+  outOfZone: 0
+  interval: 100
+  damage: 2
+  time: 0
 --- !u!1 &8058234621551205840
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,9 +694,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8058234621022999857}
     m_Modifications:
-    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_Name
-      value: Monster
+    - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -724,13 +742,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_Name
+      value: Monster
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
       propertyPath: m_LocalRotation.x
@@ -910,15 +924,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1f2b5ce7d751cb40986615e0cd00f32, type: 3}
---- !u!4 &6951305077728233251 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400014, guid: d1f2b5ce7d751cb40986615e0cd00f32,
-    type: 3}
-  m_PrefabInstance: {fileID: 6951305077728107949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6951305077728205571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100014, guid: d1f2b5ce7d751cb40986615e0cd00f32,
+    type: 3}
+  m_PrefabInstance: {fileID: 6951305077728107949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6951305077728233251 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400014, guid: d1f2b5ce7d751cb40986615e0cd00f32,
     type: 3}
   m_PrefabInstance: {fileID: 6951305077728107949}
   m_PrefabAsset: {fileID: 0}
