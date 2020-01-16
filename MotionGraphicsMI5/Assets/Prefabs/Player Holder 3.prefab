@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 3561698122564193820}
   - component: {fileID: 6233790185449632904}
   - component: {fileID: 114127633713844182}
+  - component: {fileID: 1172436073359871292}
   m_Layer: 0
   m_Name: Player Holder 3
   m_TagString: PlayerHolder
@@ -544,13 +545,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058234621022999862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b1b8c5e1f9e47d43917b7c6d2c82ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 100
   healthbar: {fileID: 8367391451152063360}
+  anim: {fileID: 4958711028584248225}
+--- !u!114 &1172436073359871292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058234621022999862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c34623106776b498d8c1b86247bf8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 4958711028584248225}
 --- !u!1 &8058234621551205840
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,29 @@ public class Health : NetworkBehaviour
 	[SyncVar (hook ="OnChangeHealth")]public int currentHealth = maxHealth;
 	public RectTransform healthbar;
 
+	public Animator anim;
+    bool alive;
+    
+    void Start()
+    {
+		OnChangeHealth(currentHealth);
+
+        anim = GetComponent<Animator>();
+
+        alive = gameObject.GetComponent<Player>().alive;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!alive)
+        {
+            anim.SetBool("isDead", true);
+        }    
+        
+    }
+
 	public void TakeDamage(int dmg)
 	{
 		if (!isServer)
@@ -18,13 +41,31 @@ public class Health : NetworkBehaviour
 		}
 
 		currentHealth -=dmg;
+
 		if(currentHealth <= 0)
 		{
 			currentHealth =0;
-            gameObject.GetComponent<Player>().alive = false;
-			Debug.Log("Dead");
+			RpcDeactivatePlayer();
 		}
 	}
+
+	[ClientRpc]
+    void RpcDeactivatePlayer()
+    {
+        GetComponent<Player>().enabled = false;
+        GetComponent<TestAnimation>().enabled = false;
+		//GetComponent<DeadAnimation>().enabled = true;
+		gameObject.GetComponent<Player>().alive = false;
+		//GetComponent<Player>().alive = false;
+		
+
+        if (isLocalPlayer)
+        {
+            //defeatText.SetActive(true);
+        }
+		
+
+    }
 
 	void OnChangeHealth(int health)
 	{

@@ -14,6 +14,7 @@ public class Player_NetworkMonster : NetworkBehaviour {
     {
         GetComponent<Player>().enabled = true;
 		GetComponent<TestAnimation>().enabled = true;
+		GetComponent<Health>().enabled = true;
 		test.SetActive(true);
 		//camera.GetComponent<Camera>().enabled = true;
 		GetComponent<NetworkAnimator>().SetParameterAutoSend(0,true);

@@ -21,6 +21,7 @@ public class Player_Animation : NetworkBehaviour {
         }
         if (!gameObject.GetComponent<Player>().alive)
         {
+			Debug.Log("TEST");
             playerAnimator.SetBool("isDead", true);
         }
 

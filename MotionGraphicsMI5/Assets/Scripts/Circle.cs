@@ -8,6 +8,7 @@ public class Circle : MonoBehaviour
     private float deltaTime = 0;
     private float time = 400;
     private bool outside = false;
+	public GameObject test;
     private void OnTriggerExit(Collider other)
     {
         if(other == trigger)
@@ -27,6 +28,7 @@ public class Circle : MonoBehaviour
             deltaTime++;
             if (deltaTime > time)
             {
+				test.GetComponent<Health>().TakeDamage(5);
                 Destroy(gameObject);
             }
         }
