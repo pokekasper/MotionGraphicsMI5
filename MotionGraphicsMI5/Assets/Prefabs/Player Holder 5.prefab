@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 8058234621022999862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.58, y: 3.587, z: -2.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 178714200457407265}
   - {fileID: 954584121034728086}
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 4958711028584248225}
-  m_ParameterSendBits: 3
+  m_ParameterSendBits: 7
   param0: 
   param1: 
   param2: 

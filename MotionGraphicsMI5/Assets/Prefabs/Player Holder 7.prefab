@@ -110,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.95119274, y: 2.0749063, z: 1.1219918}
-  m_Center: {x: 0.12210983, y: 0.97718954, z: 0.13422924}
+  m_Size: {x: 0.95119274, y: 2.0465932, z: 1.1219918}
+  m_Center: {x: 0.12210983, y: 0.9913461, z: 0.13422924}
 --- !u!1 &5136889237625884078
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 4958711028584248225}
-  m_ParameterSendBits: 3
+  m_ParameterSendBits: 7
   param0: 
   param1: 
   param2: 
@@ -900,6 +900,18 @@ PrefabInstance:
     - target: {fileID: 400000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}

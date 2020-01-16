@@ -239,15 +239,19 @@ public class Player : NetworkBehaviour
 		GameObject bullet1 = (GameObject)Instantiate(bullet, waffenhalter.transform.position, playerObj.transform.rotation);
 
 		bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * 10;
-		if (axe != null)
+		if (playerTypeId==0)
         {
             bullet1.transform.Rotate(0, 180, 0);
         }
-        if(axe == null)
+        else if(playerTypeId == 1)
+        {
+            bullet1.transform.Rotate(0, 0, 90);
+        }
+        else if (playerTypeId == 3)
         {
             bullet1.transform.Rotate(90, 90, 90);
         }
-		NetworkServer.Spawn(bullet1);
+        NetworkServer.Spawn(bullet1);
 
 		Destroy(bullet1, 2);
 	}
