@@ -48,7 +48,7 @@ public class NetworkManager_Custom : NetworkManager {
             if (textConnectionInfo.text != null)
             {
                 textConnectionInfo.text = "Disconnected or timed out.";
-                ActivatePanel("PanelMainMenu");
+                ActivatePanel("PanelStart");
             }
         }
 
@@ -75,7 +75,7 @@ public class NetworkManager_Custom : NetworkManager {
                 id = i.value;
             }
 			//Tor links
-			if(id == 0)
+			/*if(id == 0)
 			{			
 				Vector3 chosenSpawnPoint = new Vector3(-34, -20, 2);
 				Quaternion chosenSpawnPointR = new Quaternion(0,0,0,0);
@@ -113,8 +113,11 @@ public class NetworkManager_Custom : NetworkManager {
 				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
 			
 				NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
-			}
-            
+			}*/
+            Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
+			GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint.position, chosenSpawnPoint.rotation) as GameObject;
+			
+			NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
 
         #endregion
@@ -164,11 +167,11 @@ public class NetworkManager_Custom : NetworkManager {
 
             if (currentScene.name == "Menu")
             {
-                ActivatePanel("PanelMainMenu");
+                ActivatePanel("PanelStart");
             }
             else
             {
-                ActivatePanel("PanelInGame");
+                ActivatePanel("PanelIngame");
                 OnClickClearConnectionTextInfo();
             }
         }
