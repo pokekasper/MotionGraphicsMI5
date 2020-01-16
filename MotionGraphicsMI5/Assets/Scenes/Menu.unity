@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myFx: {fileID: 451119559}
-  clickFx: {fileID: 8300000, guid: 4a64c16b4b691404a89b7c2202a4dad1, type: 3}
+  clickFx: {fileID: 8300000, guid: 8235b40b9b91d274cb2c9fe80162e47a, type: 3}
 --- !u!114 &451119561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myFx: {fileID: 873849278}
-  clickFx: {fileID: 8300000, guid: 989a00bbb3ecf4649a66d389ca69b82f, type: 3}
+  clickFx: {fileID: 8300000, guid: 7e5adbff70fcdad48ab9d0b5306093be, type: 3}
 --- !u!1 &973842987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,7 +3809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myFx: {fileID: 1426697856}
-  clickFx: {fileID: 0}
+  clickFx: {fileID: 8300000, guid: 522db6ba272500d41a7055bd3e2fa7d5, type: 3}
 --- !u!82 &1426697856
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4832,4 +4832,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myFx: {fileID: 1998328874}
-  clickFx: {fileID: 8300000, guid: 1c3f1728c1dd27246a499ca11250a8b6, type: 3}
+  clickFx: {fileID: 8300000, guid: e9e394f28a9cd8844ac4afe3e8e8dded, type: 3}
