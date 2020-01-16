@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     public Vector3 rotation = new Vector3(-5, 0, 0);
 
 	private GameObject triggeringEnemy;
-    public float damage;
+    public int damage;
     Vector3 mousePosition;
     Vector3 direction;
     Vector3 hitpoint;
@@ -81,7 +81,7 @@ public class Bullet : MonoBehaviour
 		var health = hit.GetComponent<Health>();
 		if(health != null)
 		{
-			health.TakeDamage(10);
+			health.TakeDamage(damage);
 		}
 
 		Destroy(gameObject);

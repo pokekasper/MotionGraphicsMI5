@@ -375,7 +375,7 @@ MonoBehaviour:
   maxTime: 10
   timeCount: 0
   rotation: {x: -8, y: 0, z: 0}
-  damage: 25
+  damage: 20
   parent: {fileID: 0}
   player: {fileID: 8830110519166379609, guid: e9e42687c56f49b4e840476e9b70a1c1, type: 3}
   rotationSpeed: 500
