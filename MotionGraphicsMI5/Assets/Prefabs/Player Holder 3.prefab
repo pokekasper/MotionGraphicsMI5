@@ -359,6 +359,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 6951305077728205571}
   waitTime: 0.5
   bullet: {fileID: 2723063539299354848, guid: b85627ca05740a745b3025d9eb96978e, type: 3}
+  playerTypeId: 1
   points: 0
   x: 0
   y: 0
@@ -708,14 +709,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.04057525
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.049198084
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
       propertyPath: m_Controller
       value: 
@@ -723,6 +716,14 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.04057525
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.049198084
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}

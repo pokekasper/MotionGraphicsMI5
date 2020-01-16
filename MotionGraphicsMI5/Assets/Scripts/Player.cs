@@ -14,6 +14,7 @@ public class Player : NetworkBehaviour
 	public GameObject bulletSpawnPoint;
 	public float waitTime;
 	public GameObject bullet;
+    public int playerTypeId;
 
 	private Transform bulletSpawn;
     
@@ -78,7 +79,7 @@ public class Player : NetworkBehaviour
                         dreh = false;
                         Invoke("EnableMovement", 1f);
                         Rotatet(ray, hitDist, playerPlane);
-                        StartCoroutine(Waiting());
+                        StartCoroutine(Waiting(0.3f));
                         /*   axe.SetActive(false);
                            i++;
                            Rotatet(ray, hitDist, playerPlane);
@@ -96,7 +97,7 @@ public class Player : NetworkBehaviour
                 else
                 {
                     dreh = false;
-                    StartCoroutine(Waiting());
+                    StartCoroutine(Waiting(0.3f));
                     //Invoke("CmdShoot",spawnTime);
 
 
@@ -122,10 +123,10 @@ public class Player : NetworkBehaviour
 
 
             }
-            IEnumerator Waiting()
+            IEnumerator Waiting(float time)
             {
                 Debug.Log("Mill:" + Time.deltaTime);
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(time);
                 Debug.Log("Mill:" + Time.deltaTime);
                 CmdFire();
 
@@ -136,31 +137,94 @@ public class Player : NetworkBehaviour
             {
                 return;
             }
-            //55 muss noch angepasst werden
             time++;
-            if (time > 55)
-            {
-                dreh = true;
-            }
             float xs = Input.GetAxis("Horizontal");
             float zs = Input.GetAxis("Vertical");
+            if (playerTypeId == 0)
+            {
+                if (time > 57)
+                {
+                    dreh = true;
+                }
+                if (time > 75)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        time = 0;
+                        dreh = false;
+                        StartCoroutine(Waiting(0.4f));
+
+                    }
+                    // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                }
+            }
+            else if(playerTypeId == 1)
+            {
+                if (time > 60)
+                {
+                    dreh = true;
+                }
+                if (time > 45)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        time = 0;
+                        dreh = false;
+                        StartCoroutine(Waiting(0.4f));
+
+                    }
+                    // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                }
+            }
+            else if (playerTypeId == 2)
+            {
+                if (time > 110)
+                {
+                    dreh = true;
+                }
+                if (time > 110)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        time = 0;
+                        dreh = false;
+                        StartCoroutine(Waiting(0.6f));
+
+                    }
+                    // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                }
+            }
+            else if (playerTypeId == 3)
+            {
+                if (time > 31)
+                {
+                    dreh = true;
+                }
+                if (time > 21)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        time = 0;
+                        dreh = false;
+                        StartCoroutine(Waiting(0.1f));
+
+                    }
+                    // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                }
+            }
+
+
+
 
 
             //transform.Rotate(0,xs,0);
             //transform.Translate(0,0,zs);
 
-            if (time > 40)
-            {
-                if (Input.GetMouseButtonDown(1))
-                {
-                    time = 0;
-                    dreh = false;
-                    StartCoroutine(Waiting());
 
-                }
-                // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-            }
         }
         
 		

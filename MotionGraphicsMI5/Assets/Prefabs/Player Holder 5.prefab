@@ -609,6 +609,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 5642478216232819032}
   waitTime: 0.5
   bullet: {fileID: 2723063539299354848, guid: 5fc46809fd8d11b48aa12daefd3c291e, type: 3}
+  playerTypeId: 2
   points: 0
   x: 0
   y: 0
