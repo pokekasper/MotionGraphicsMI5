@@ -77,8 +77,8 @@ public class NetworkManager_Custom : NetworkManager {
 			//Tor links
 			if(id == 0)
 			{			
-				Vector3 chosenSpawnPoint = new Vector3(-25,-21,0);
-				Quaternion chosenSpawnPointR = new Quaternion(90,0,0,0);
+				Vector3 chosenSpawnPoint = new Vector3(-34, -20, 2);
+				Quaternion chosenSpawnPointR = new Quaternion(0,0,0,0);
 				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
 				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
 			
@@ -87,7 +87,7 @@ public class NetworkManager_Custom : NetworkManager {
 			//Tor hinten
 			else if(id == 1)
 			{			
-				Vector3 chosenSpawnPoint = new Vector3(4,-21, -22);
+				Vector3 chosenSpawnPoint = new Vector3(-5,-21,-28);
 				Quaternion chosenSpawnPointR = new Quaternion();
 				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
 				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
@@ -97,7 +97,7 @@ public class NetworkManager_Custom : NetworkManager {
 			//Tor vorne
 			else if(id == 2)
 			{			
-				Vector3 chosenSpawnPoint = new Vector3(1,-21,26);
+				Vector3 chosenSpawnPoint = new Vector3(-4,-21,30);
 				Quaternion chosenSpawnPointR = new Quaternion();
 				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
 				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
@@ -107,7 +107,7 @@ public class NetworkManager_Custom : NetworkManager {
 			//Tor rechts
 			else if(id == 3)
 			{
-				Vector3 chosenSpawnPoint = new Vector3(25,-21,0);
+				Vector3 chosenSpawnPoint = new Vector3(25,-21,-1);
 				Quaternion chosenSpawnPointR = new Quaternion();
 				//Transform chosenSpawnPoint = NetworkManager.singleton.startPositions[Random.Range(0, NetworkManager.singleton.startPositions.Count)];
 				GameObject player = Instantiate(characterPrefabs[id], chosenSpawnPoint, chosenSpawnPointR) as GameObject;
