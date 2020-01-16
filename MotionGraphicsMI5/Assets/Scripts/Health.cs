@@ -12,6 +12,9 @@ public class Health : NetworkBehaviour
 
 	public Animator anim;
     bool alive;
+
+	public AudioSource dmgSound;
+	public AudioSource deathSound;
     
     void Start()
     {
@@ -41,6 +44,7 @@ public class Health : NetworkBehaviour
 		}
 
 		currentHealth -=dmg;
+		dmgSound.Play();
 
 		if(currentHealth <= 0)
 		{
@@ -56,6 +60,7 @@ public class Health : NetworkBehaviour
         GetComponent<TestAnimation>().enabled = false;
 		//GetComponent<DeadAnimation>().enabled = true;
 		gameObject.GetComponent<Player>().alive = false;
+		deathSound.PlayDelayed(1f);
 		//GetComponent<Player>().alive = false;
 		
 

@@ -34,6 +34,7 @@ public class Player : NetworkBehaviour
     public float activeTime = 2.0f;
     int time=40;
     public bool alive= true;
+	public AudioSource shootAudio;
     //Methoden
     void Update()
     {
@@ -153,7 +154,7 @@ public class Player : NetworkBehaviour
                         time = 0;
                         dreh = false;
                         StartCoroutine(Waiting(0.4f));
-
+						shootAudio.Play();
                     }
                     // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
@@ -172,7 +173,7 @@ public class Player : NetworkBehaviour
                         time = 0;
                         dreh = false;
                         StartCoroutine(Waiting(0.4f));
-
+						shootAudio.Play();
                     }
                     // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
@@ -191,7 +192,7 @@ public class Player : NetworkBehaviour
                         time = 0;
                         dreh = false;
                         StartCoroutine(Waiting(0.6f));
-
+						shootAudio.Play();
                     }
                     // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
@@ -210,7 +211,7 @@ public class Player : NetworkBehaviour
                         time = 0;
                         dreh = false;
                         StartCoroutine(Waiting(0.1f));
-
+						shootAudio.Play();
                     }
                     // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
