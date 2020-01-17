@@ -112,7 +112,7 @@ public class Player : NetworkBehaviour
 
 
             }
-            if (!Input.GetMouseButtonDown(0) && dreh)
+            if (!Input.GetButtonDown("Fire") && dreh)
             {
                 x = Input.GetAxisRaw("Horizontal");
                 y = Input.GetAxisRaw("Vertical");
@@ -151,7 +151,7 @@ public class Player : NetworkBehaviour
                 }
                 if (time > 75)
                 {
-                    if (Input.GetMouseButtonDown(1))
+                    if (Input.GetButtonDown("Fire"))
                     {
                         time = 0;
                         dreh = false;
@@ -170,7 +170,7 @@ public class Player : NetworkBehaviour
                 }
                 if (time > 45)
                 {
-                    if (Input.GetMouseButtonDown(1))
+                    if (Input.GetButtonDown("Fire"))
                     {
                         time = 0;
                         dreh = false;
@@ -189,7 +189,7 @@ public class Player : NetworkBehaviour
                 }
                 if (time > 110)
                 {
-                    if (Input.GetMouseButtonDown(1))
+                    if (Input.GetButtonDown("Fire"))
                     {
                         time = 0;
                         dreh = false;
@@ -208,7 +208,7 @@ public class Player : NetworkBehaviour
                 }
                 if (time > 21)
                 {
-                    if (Input.GetMouseButtonDown(1))
+                    if (Input.GetButtonDown("Fire"))
                     {
                         time = 0;
                         dreh = false;

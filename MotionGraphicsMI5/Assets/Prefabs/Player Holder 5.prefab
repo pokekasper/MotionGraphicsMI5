@@ -689,6 +689,7 @@ MonoBehaviour:
   activeTime: 2
   alive: 1
   shootAudio: {fileID: 3691404163145361918}
+  disconnect: {fileID: 0}
 --- !u!54 &8058234621022999863
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -902,7 +903,7 @@ MonoBehaviour:
   coll: {fileID: 1578153037458143475, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
   outOfZone: 0
   interval: 100
-  damage: 5
+  damage: 10
   time: 0
 --- !u!82 &3691404163145361918
 AudioSource:

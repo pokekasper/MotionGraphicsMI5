@@ -22,7 +22,7 @@ public class Shooting : NetworkBehaviour
 		transform.Rotate(0,x,0);
 		transform.Translate(0,0,z);
 
-		if (Input.GetMouseButtonDown(1))
+		if (Input.GetButtonDown("Fire"))
 		{
 			CmdFire();
 		}

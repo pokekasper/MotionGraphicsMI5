@@ -994,7 +994,7 @@ MonoBehaviour:
   coll: {fileID: 1578153037458143475, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
   outOfZone: 0
   interval: 100
-  damage: 5
+  damage: 10
   time: 0
 --- !u!82 &101457432076096815
 AudioSource:
@@ -1504,9 +1504,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8058234621022999857}
     m_Modifications:
-    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_Name
-      value: Monster
+    - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1552,9 +1552,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_Name
+      value: Monster
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
       propertyPath: m_LocalRotation.x
