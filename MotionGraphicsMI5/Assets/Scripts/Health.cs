@@ -38,6 +38,7 @@ public class Health : NetworkBehaviour
 
 	public void TakeDamage(int dmg)
 	{
+        Debug.Log("takeDamage" + gameObject);
 		if (!isServer)
 		{
 			return;

@@ -372,7 +372,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058234621022999862}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -567,15 +567,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058234621022999862}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce781e2f22602964291cb7aa373cb262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 7039031094748423757, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
+  coll: {fileID: 4512634826140417861, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
   outOfZone: 0
   interval: 100
-  damage: 2
+  damage: 5
   time: 0
 --- !u!82 &6072530166324600687
 AudioSource:
@@ -1119,14 +1119,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8058234621022999857}
     m_Modifications:
-    - target: {fileID: 100144, guid: d06c0d2207b31f94f9d9bc6bbaf95166, type: 3}
-      propertyPath: m_Name
-      value: Archer
-      objectReference: {fileID: 0}
-    - target: {fileID: 100144, guid: d06c0d2207b31f94f9d9bc6bbaf95166, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: d06c0d2207b31f94f9d9bc6bbaf95166, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1182,6 +1174,14 @@ PrefabInstance:
     - target: {fileID: 400144, guid: d06c0d2207b31f94f9d9bc6bbaf95166, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.52423877
+      objectReference: {fileID: 0}
+    - target: {fileID: 100144, guid: d06c0d2207b31f94f9d9bc6bbaf95166, type: 3}
+      propertyPath: m_Name
+      value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 100144, guid: d06c0d2207b31f94f9d9bc6bbaf95166, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: d06c0d2207b31f94f9d9bc6bbaf95166, type: 3}
       propertyPath: m_Enabled

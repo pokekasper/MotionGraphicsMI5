@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class DamageCircle : MonoBehaviour
+public class DamageCircle : NetworkBehaviour
 {
     public SphereCollider coll;
     public bool outOfZone = false;
@@ -17,7 +18,7 @@ public class DamageCircle : MonoBehaviour
         {
             time = 0;
             outOfZone = false;
-            Debug.Log("OutofZone");
+            Debug.Log("INZone"+gameObject);
         }
         
     }
@@ -27,7 +28,7 @@ public class DamageCircle : MonoBehaviour
         {
             time = 0;
             outOfZone = true;
-            Debug.Log("InZone");
+            Debug.Log("outZone"+gameObject);
         }
         
     }
@@ -37,12 +38,17 @@ public class DamageCircle : MonoBehaviour
         if (outOfZone)
         {
             time++;
-            if (time == interval)
+            if (gameObject.GetComponent<Health>().currentHealth > 0)
             {
-                Debug.Log("Damage Dealt");
-                gameObject.GetComponent<Health>().TakeDamage(damage);
-                time = 0;
+                if (time == interval)
+                {
+
+                    Debug.Log("Damage Dealt");
+                    gameObject.GetComponent<Health>().TakeDamage(damage);
+                    time = 0;
+                }
             }
+           
         }
     }
     // Update is called once per frame
