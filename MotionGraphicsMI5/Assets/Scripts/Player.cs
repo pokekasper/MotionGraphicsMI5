@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Player : NetworkBehaviour
 {
@@ -35,6 +36,7 @@ public class Player : NetworkBehaviour
     int time=40;
     public bool alive= true;
 	public AudioSource shootAudio;
+	public GameObject disconnect;
     //Methoden
     void Update()
     {
@@ -219,7 +221,14 @@ public class Player : NetworkBehaviour
             }
 
 
-
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				disconnect.SetActive(true);
+			}
+			else if(Input.GetKeyUp(KeyCode.Escape))
+			{
+				disconnect.SetActive(false);
+			}
 
 
             //transform.Rotate(0,xs,0);
@@ -232,6 +241,12 @@ public class Player : NetworkBehaviour
         
         
     }
+
+	public void BacktoMenu()
+	{
+		SceneManager.LoadScene("Menu");
+	}
+
 
     [Command]
 	void CmdFire()

@@ -9,6 +9,8 @@ public class Health : NetworkBehaviour
     public const int maxHealth = 100;
 	[SyncVar (hook ="OnChangeHealth")]public int currentHealth = maxHealth;
 	public RectTransform healthbar;
+	//public Rect defeatSign;
+	public GameObject defeat;
 
 	public Animator anim;
     bool alive;
@@ -62,6 +64,12 @@ public class Health : NetworkBehaviour
 		//GetComponent<DeadAnimation>().enabled = true;
 		gameObject.GetComponent<Player>().alive = false;
 		deathSound.PlayDelayed(1f);
+
+			if (isLocalPlayer)
+            {
+                defeat.SetActive(true);
+            }
+		
 		//GetComponent<Player>().alive = false;
 		
 
