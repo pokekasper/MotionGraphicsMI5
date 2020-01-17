@@ -449,6 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCharacter: {fileID: 0}
   test: {fileID: 5136889237625884078}
+  test2: {fileID: 7021404283456650871}
 --- !u!95 &4958711028584248225
 Animator:
   serializedVersion: 3
@@ -872,7 +873,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058234621022999862}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 791fcc2ee27ed104b92a876b16a3ef33, type: 3}
