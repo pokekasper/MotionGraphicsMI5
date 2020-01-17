@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce781e2f22602964291cb7aa373cb262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 4512634826140417861, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
+  coll: {fileID: 1578153037458143475, guid: 4139f3b8dda17da47b11d83f33427059, type: 3}
   outOfZone: 0
   interval: 100
   damage: 5
