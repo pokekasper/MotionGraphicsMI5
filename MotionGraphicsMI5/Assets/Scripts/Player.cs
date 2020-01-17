@@ -221,14 +221,7 @@ public class Player : NetworkBehaviour
             }
 
 
-			if (Input.GetKeyDown(KeyCode.Escape))
-			{
-				disconnect.SetActive(true);
-			}
-			else if(Input.GetKeyUp(KeyCode.Escape))
-			{
-				disconnect.SetActive(false);
-			}
+			
 
 
             //transform.Rotate(0,xs,0);

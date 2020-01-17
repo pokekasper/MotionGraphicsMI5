@@ -184,7 +184,7 @@ public class NetworkManager_Custom : NetworkManager {
         {
             foreach (GameObject panelGO in panelsForUI)
             {
-                if (panelGO.name.Equals(panelName))
+                if (panelGO.name.Equals(panelName) && !("PanelIngame" == panelName))
                 {
                     panelGO.SetActive(true);
                 }
