@@ -237,8 +237,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6557378348597625776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0.41}
+  m_LocalScale: {x: 0.019019304, y: 0.019019304, z: 0.019019304}
   m_Children:
   - {fileID: 8744828537300727536}
   - {fileID: 8367391451152063360}
@@ -247,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.28}
+  m_AnchoredPosition: {x: 0.2142, y: 3.36}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5061710149848623012
@@ -618,7 +618,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 382383dafa0278041870fbd3811ee570, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -714,7 +714,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 43325010713fce64d9a1c129372d2372, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -810,7 +810,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9a759755d2ff20b4b910d5ccab5b7821, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -906,7 +906,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1c3f1728c1dd27246a499ca11250a8b6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1175,8 +1175,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8058234621022999857}
     m_Modifications:
-    - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_Name
+      value: Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
@@ -1223,12 +1227,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_Name
-      value: Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 9500000, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 995188f1cd198ac43ad19017b81b70cd, type: 3}
@@ -1278,6 +1278,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8058234621022999857}
     m_Modifications:
+    - target: {fileID: 100000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
+      propertyPath: m_Name
+      value: Viking
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1333,10 +1337,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
-      propertyPath: m_Name
-      value: Viking
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc70a13c1998a4b4b87d306b9c9538b5, type: 3}
