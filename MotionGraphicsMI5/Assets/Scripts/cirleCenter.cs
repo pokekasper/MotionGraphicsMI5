@@ -14,7 +14,7 @@ public class cirleCenter : MonoBehaviour
     void Update()
     {
 		array= GameObject.FindGameObjectsWithTag("PlayerHolder");
-		if(array.Length == 1)
+		if(array.Length == 2)
 		{
 			if (coll.radius > endRadius)
 			{
