@@ -21,11 +21,8 @@ public class Health : NetworkBehaviour
     void Start()
     {
 		OnChangeHealth(currentHealth);
-
         anim = GetComponent<Animator>();
-
-        alive = gameObject.GetComponent<Player>().alive;
-        
+        alive = gameObject.GetComponent<Player>().alive; 
     }
 
     // Update is called once per frame
@@ -35,7 +32,6 @@ public class Health : NetworkBehaviour
         {
             anim.SetBool("isDead", true);
         }    
-        
     }
 
 	public void TakeDamage(int dmg)
@@ -69,16 +65,11 @@ public class Health : NetworkBehaviour
             {
                 defeat.SetActive(true);
             }
-		
-		//GetComponent<Player>().alive = false;
-		
 
         if (isLocalPlayer)
         {
             //defeatText.SetActive(true);
         }
-		
-
     }
 
 	void OnChangeHealth(int health)

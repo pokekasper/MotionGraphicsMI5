@@ -16,27 +16,16 @@ public class WeaponScript : MonoBehaviour
     {
         if (activated)
         {
-            
-            //axis.z = 0;
-            /*if (!done)
-            {
-                axis = GetComponent<ThrowAxe>().direction;
-                Vector3 neuAxis = new Vector3(axis.x, axis.y, 0);
-                done = true;
-            }*/
-            
             transform.Rotate(Vector3.left * rotationSpeed * Time.deltaTime);
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-
         Debug.Log(other.gameObject.name);
         
         if (other.tag == "Enemy")
         {
-
             GameObject triggeringEnemy = other.gameObject;
             triggeringEnemy.GetComponent<Enemy>().health -= damage;
             Debug.Log("damage dealt, hp remain: " + triggeringEnemy.GetComponent<Enemy>().health);

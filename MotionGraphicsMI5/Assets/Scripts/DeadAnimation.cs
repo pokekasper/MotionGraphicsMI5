@@ -11,18 +11,14 @@ public class DeadAnimation : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-
-        alive = gameObject.GetComponent<Player>().alive;
-        
+        alive = gameObject.GetComponent<Player>().alive; 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!alive)
         {
             anim.SetBool("isDead", true);
-        }    
-        
+        }        
     }
 }

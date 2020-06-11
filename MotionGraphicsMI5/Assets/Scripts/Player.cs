@@ -44,7 +44,6 @@ public class Player : NetworkBehaviour
         if (alive)
         {
 
-            //Spieler ist auf die MAus gerichtet
             //Aufspüren der Kameraposition
             Plane playerPlane = new Plane(Vector3.up, transform.position);
 
@@ -56,19 +55,14 @@ public class Player : NetworkBehaviour
 
             if (!Input.anyKey)
             {
-
                 Rotatet(ray, hitDist, playerPlane);
             }
-
 
             if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0)
             {
                 xx = Input.GetAxisRaw("Horizontal");
                 yy = Input.GetAxisRaw("Vertical");
             }
-
-
-
 
             //Shooting
             if (Input.GetKeyDown(KeyCode.Space))
@@ -108,10 +102,8 @@ public class Player : NetworkBehaviour
                     Invoke("EnableMovement", 1f);
                 }
                 Debug.Log("werfen i:" + i);
-
-
-
             }
+
             if (!Input.GetButtonDown("Fire") && dreh)
             {
                 x = Input.GetAxisRaw("Horizontal");
@@ -123,9 +115,8 @@ public class Player : NetworkBehaviour
                     Vector3 direction = new Vector3(x, 0, y).normalized;
                     Move(direction);
                 }
-
-
             }
+
             IEnumerator Waiting(float time)
             {
                 Debug.Log("Mill:" + Time.deltaTime);
@@ -135,20 +126,22 @@ public class Player : NetworkBehaviour
 
             }
 
-
             if (!isLocalPlayer)
             {
                 return;
             }
+
             time++;
             float xs = Input.GetAxis("Horizontal");
             float zs = Input.GetAxis("Vertical");
+
             if (playerTypeId == 0)
             {
                 if (time > 57)
                 {
                     dreh = true;
                 }
+
                 if (time > 75)
                 {
                     if (Input.GetButtonDown("Fire"))
@@ -158,8 +151,6 @@ public class Player : NetworkBehaviour
                         StartCoroutine(Waiting(0.4f));
 						shootAudio.Play();
                     }
-                    // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
                 }
             }
             else if(playerTypeId == 1)
@@ -168,6 +159,7 @@ public class Player : NetworkBehaviour
                 {
                     dreh = true;
                 }
+
                 if (time > 45)
                 {
                     if (Input.GetButtonDown("Fire"))
@@ -187,6 +179,7 @@ public class Player : NetworkBehaviour
                 {
                     dreh = true;
                 }
+
                 if (time > 110)
                 {
                     if (Input.GetButtonDown("Fire"))
@@ -206,6 +199,7 @@ public class Player : NetworkBehaviour
                 {
                     dreh = true;
                 }
+
                 if (time > 21)
                 {
                     if (Input.GetButtonDown("Fire"))
@@ -215,31 +209,16 @@ public class Player : NetworkBehaviour
                         StartCoroutine(Waiting(0.1f));
 						shootAudio.Play();
                     }
-                    // gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
                 }
             }
 
-
-			
-
-
-            //transform.Rotate(0,xs,0);
-            //transform.Translate(0,0,zs);
-
-
-        }
-        
-		
-        
-        
+        }   
     }
 
 	public void BacktoMenu()
 	{
 		SceneManager.LoadScene("Menu");
 	}
-
 
     [Command]
 	void CmdFire()
@@ -248,6 +227,7 @@ public class Player : NetworkBehaviour
 		GameObject bullet1 = (GameObject)Instantiate(bullet, waffenhalter.transform.position, playerObj.transform.rotation);
 
 		bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * 10;
+
 		if (playerTypeId==0)
         {
             bullet1.transform.Rotate(0, 180, 0);
@@ -260,8 +240,8 @@ public class Player : NetworkBehaviour
         {
             bullet1.transform.Rotate(90, 90, 90);
         }
-        NetworkServer.Spawn(bullet1);
 
+        NetworkServer.Spawn(bullet1);
 		Destroy(bullet1, 2);
 	}
 
@@ -269,35 +249,12 @@ public class Player : NetworkBehaviour
 	void CmdShoot()
 	{
 
-        //  Waiting(2f);
-        //bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-        //bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
-        //bulletSpawn.Rotate(0, 180, 0);
         bulletSpawn1 = (GameObject)Instantiate(bullet, bulletSpawnPoint.transform.position, waffenhalter.transform.rotation);
         bulletSpawn1.transform.rotation = bulletSpawnPoint.transform.rotation;
-        /*if (axe != null)
-        {
-            bulletSpawn1.transform.Rotate(0, 120, 0);
-        }
-        else
-        {
-            bulletSpawn1.transform.Rotate(0, 270, 0);
-        }*/
-		
-        
-
-		//bulletSpawn1.GetComponent<Rigidbody>().velocity = bulletSpawn1.transform.forward * 6;
 
 		NetworkServer.Spawn(bulletSpawn1);
         Invoke("activeSet", activeTime);
         Destroy(bulletSpawn1, activeTime);
-        
-       
-
-
-        //axe.SetActive(false);
-
-
     }
     void activeSet()
     {
@@ -305,8 +262,7 @@ public class Player : NetworkBehaviour
         {
             
             axe.SetActive(true);
-        }
-            
+        }  
     }
 
 
@@ -325,7 +281,6 @@ public class Player : NetworkBehaviour
             targetRotation.x = 0;
             targetRotation.z = 0;
             playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 150f * Time.deltaTime);
-            // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
         }
     }
  

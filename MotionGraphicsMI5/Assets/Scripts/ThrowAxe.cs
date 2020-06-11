@@ -22,17 +22,10 @@ public class ThrowAxe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
         axeRb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
-
-        //Debug.Log("hallo i2323 0");
-        // Debug.Log(direction.z);
-
-
         if (Input.GetMouseButtonDown(0))
         {
             if (i ==0 ) {
@@ -63,8 +56,6 @@ public class ThrowAxe : MonoBehaviour
                 axeRb.angularVelocity = Vector3.zero;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
 
-
-
                 i++;
             }
             else
@@ -80,19 +71,17 @@ public class ThrowAxe : MonoBehaviour
             
         }
     }
+
     void EnableCollider()
     {
         gameObject.GetComponent<BoxCollider>().enabled = true;
     }
     
-        
-   
     void EnableMovement()
     {
         player2.GetComponent<Player2>().dreh = true;
     }
 
-    // Update is called once per frame
     public void AxeThrow()
     {
         startRotation = transform.localRotation;
@@ -103,43 +92,20 @@ public class ThrowAxe : MonoBehaviour
         axeRb.isKinematic = false;
         axeRb.transform.parent = null;
 
-        /*
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            mousePosition = hit.point;
-        }
-        mousePosition.y = transform.position.y;
-        direction = (mousePosition - transform.position).normalized;
-        Debug.Log("transform.rotation.x: " + transform.rotation.x);
-        Debug.Log("transform.rotation.y: " + transform.rotation.y);
-        Debug.Log(transform.gameObject);
-        rot = new Quaternion(transform.rotation.x,transform.rotation.y,0,0);
-        rot.x = 0;
-        rot.z = 0;
-        //rot.y += 180;
-         transform.rotation = rot;*/
         Plane playerPlane = new Plane(Vector3.up, transform.position);
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
         if (playerPlane.Raycast(ray, out hitDist))
-         {
-             prevPos = transform.position;
-             Vector3 targetPoint = ray.GetPoint(hitDist);
-             //rot = Quaternion.LookRotation(targetPoint - transform.position);
-            // rot.x = 0;
-            // rot.z = 0;
+        {
+            prevPos = transform.position;
+            Vector3 targetPoint = ray.GetPoint(hitDist);
 
             Vector3 rot = transform.rotation.eulerAngles;
             rot = new Vector3(0, rot.y + 180, 0);
-            transform.rotation = Quaternion.Euler(rot);
-
-           
-         }
+            transform.rotation = Quaternion.Euler(rot); 
+        }
 
         axeRb.AddForce(direction.normalized * throwPower, ForceMode.Impulse);
 
-        
-        
         GetComponent<WeaponScript>().activated = true;
 
     }

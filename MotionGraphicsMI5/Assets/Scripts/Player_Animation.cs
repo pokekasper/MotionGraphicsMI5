@@ -7,7 +7,6 @@ public class Player_Animation : NetworkBehaviour {
 
     public Animator playerAnimator;
 	
-	// Update is called once per frame
 	void Update ()
     {
         CheckForPlayerInput();
@@ -19,6 +18,7 @@ public class Player_Animation : NetworkBehaviour {
         {
             return;
         }
+
         if (!gameObject.GetComponent<Player>().alive)
         {
 			Debug.Log("TEST");
@@ -30,7 +30,6 @@ public class Player_Animation : NetworkBehaviour {
         {
             playerAnimator.SetBool("isWalking", true);
         }
-
         else
         {
             playerAnimator.SetBool("isWalking", false);

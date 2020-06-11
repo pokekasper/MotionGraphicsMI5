@@ -29,13 +29,6 @@ public class Enemy : MonoBehaviour
 	public void Die()
 	{
 		print(this.gameObject.name + " has died!");
-        //Er findet nicht die Player2 Componenete bei dem Spawn Variante
-        // player.GetComponent<Player2>().points += pointsToGive;
-        //Debug.Log("Player has now " + player.GetComponent<Player2>().points + " points");
-        dead = true;
-        //Debug.Log("Tot!");
-       // Destroy(this.gameObject);
-
-		
+        dead = true;	
 	}
 }

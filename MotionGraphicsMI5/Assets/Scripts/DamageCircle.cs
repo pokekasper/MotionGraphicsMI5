@@ -10,31 +10,30 @@ public class DamageCircle : NetworkBehaviour
     public int interval = 100;
     public int damage = 2;
     public int time=0;
-    // Start is called before the first frame update
+    
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger in Zone:"+ other.gameObject);
+        //Debug.Log("Trigger in Zone: "+ other.gameObject);
         if (other.gameObject.name == coll.gameObject.name)
         {
             time = 0;
             outOfZone = false;
-            Debug.Log("INZone"+gameObject);
-        }
-        
+            //Debug.Log("InZone: "+gameObject);
+        }        
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == coll.gameObject.name)
         {
             time = 0;
             outOfZone = true;
-            Debug.Log("outZone"+gameObject);
-        }
-        
+            //Debug.Log("outZone"+gameObject);
+        }      
     }
+
     private void Update()
-    {
-        
+    {     
         if (outOfZone)
         {
             time++;
@@ -42,8 +41,7 @@ public class DamageCircle : NetworkBehaviour
             {
                 if (time == interval)
                 {
-
-                    Debug.Log("Damage Dealt");
+                    //Debug.Log("Damage Dealt");
                     gameObject.GetComponent<Health>().TakeDamage(damage);
                     time = 0;
                 }
@@ -51,6 +49,6 @@ public class DamageCircle : NetworkBehaviour
            
         }
     }
-    // Update is called once per frame
+   
 
 }

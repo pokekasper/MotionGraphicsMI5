@@ -23,10 +23,6 @@ public class Player2 : MonoBehaviour
     void Update()
     {
 
-
-
-        //Spieler ist auf die MAus gerichtet
-        //Aufspüren der Kameraposition
         Plane playerPlane = new Plane(Vector3.up, transform.position);
 
         //Postion der Maus
@@ -58,14 +54,12 @@ public class Player2 : MonoBehaviour
     {
         if (playerPlane.Raycast(ray, out hitDist) && Input.GetMouseButtonDown(0))
         {
-            //Debug.Log("geht");
             prevPos = transform.position;
             Vector3 targetPoint = ray.GetPoint(hitDist);
             Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
             targetRotation.x = 0;
             targetRotation.z = 0;
             playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 150f * Time.deltaTime);
-            // Debug.Log("player.transform.rotation: " + playerObj.transform.rotation);
         }
     }
 	

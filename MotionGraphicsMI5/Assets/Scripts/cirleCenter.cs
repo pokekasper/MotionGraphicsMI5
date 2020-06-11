@@ -6,6 +6,7 @@ public class cirleCenter : MonoBehaviour
 {
     public SphereCollider coll;
     public float speed;
+    public bool startMinRadius = false;
     public float endRadius;
 	public GameObject test;
     GameObject[] array;
@@ -13,7 +14,7 @@ public class cirleCenter : MonoBehaviour
     void Update()
     {
 		array= GameObject.FindGameObjectsWithTag("PlayerHolder");
-		if(array.Length == 4)
+		if(array.Length == 1)
 		{
 			if (coll.radius > endRadius)
 			{
@@ -21,16 +22,14 @@ public class cirleCenter : MonoBehaviour
 				coll.radius -= speed;
 			}
 		}
-		
-        
-       
-       
-        //coll.size = new Vector3(coll.size.x - speed, coll.size.y, coll.size.z - speed);
+		else if (startMinRadius)
+        {
+            coll.radius -= speed;
+        }
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(new Vector3(0, gameObject.transform.position.y, 0), coll.radius);
-        
+        Gizmos.DrawWireSphere(new Vector3(0, gameObject.transform.position.y, 0), coll.radius);       
     }
 }

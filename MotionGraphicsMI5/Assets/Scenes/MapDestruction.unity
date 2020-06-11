@@ -1818,7 +1818,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coll: {fileID: 100838510}
   speed: 0.02
+  startMinRadius: 1
   endRadius: 10
+  test: {fileID: 0}
 --- !u!135 &100838512
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6266,7 +6268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coll: {fileID: 461241004}
   speed: 0.003
+  startMinRadius: 1
   endRadius: 0
+  test: {fileID: 0}
 --- !u!135 &461241004
 SphereCollider:
   m_ObjectHideFlags: 0

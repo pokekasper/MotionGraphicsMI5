@@ -8,22 +8,14 @@ public class Circle : MonoBehaviour
     private float deltaTime = 0;
     private float time = 400;
     private bool outside = false;
+
     private void OnTriggerExit(Collider other)
     {
         if(other == trigger)
         {
-            //Debug.Log(gameObject);
-            //Debug.Log("Selected Trigger");
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             outside = true;
-        }
-        
-        
+        }    
     }
-    private void Update()
-    {
-        
-    }
-    
 
 }
